@@ -25,6 +25,8 @@ ToDyeFor is a web application that allows surface designers, textile artist and 
 * C#
 * ASP.NET
 * MongoDB
+* Image store API
+* AWS for hosting
 
 ### What I'll Have to Learn
 

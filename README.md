@@ -34,3 +34,6 @@ We will have to learn how to have a user upload an image and have it stored in a
 ### Project Tracker
 
 https://trello.com/b/uUg7dYDO/todyefor
+
+###LICENSE
+GPL-3.0-or-later

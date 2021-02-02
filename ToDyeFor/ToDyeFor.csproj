@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-ToDyeFor-75814EB2-72EA-420B-A762-97FC6A09585E</UserSecretsId>
+    <UserSecretsId>aspnet-ToDyeFor-4D504F2D-0249-458C-AE42-0008E4ED6179</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

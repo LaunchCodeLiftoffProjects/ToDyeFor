@@ -5697,19 +5697,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\megan\\.nuget\\packages\\": {}
+    "C:\\Users\\Pearce\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\megan\\Desktop\\Liftoff\\ToDyeFor\\ToDyeFor\\ToDyeFor\\ToDyeFor.csproj",
+      "projectUniqueName": "D:\\ALL CODING\\LiftOff\\ToDyeFor\\ToDyeFor\\ToDyeFor.csproj",
       "projectName": "ToDyeFor",
-      "projectPath": "C:\\Users\\megan\\Desktop\\Liftoff\\ToDyeFor\\ToDyeFor\\ToDyeFor\\ToDyeFor.csproj",
-      "packagesPath": "C:\\Users\\megan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\megan\\Desktop\\Liftoff\\ToDyeFor\\ToDyeFor\\ToDyeFor\\obj\\",
+      "projectPath": "D:\\ALL CODING\\LiftOff\\ToDyeFor\\ToDyeFor\\ToDyeFor.csproj",
+      "packagesPath": "C:\\Users\\Pearce\\.nuget\\packages\\",
+      "outputPath": "D:\\ALL CODING\\LiftOff\\ToDyeFor\\ToDyeFor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\megan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pearce\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

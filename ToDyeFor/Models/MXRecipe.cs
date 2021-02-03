@@ -11,6 +11,16 @@ namespace ToDyeFor.Models
         [BsonId]
         public ObjectId Id { get; set; }
 
+        //How to use with MongoDB: http://www.binaryintellect.net/articles/6c715186-97b1-427a-9ccc-deb3ece7b839.aspx
+        //to just get date only in code use:  DateTime.Now.Date
+        [BsonElement("created-date")]
+        [BsonDateTimeOptions(DateOnly = true)]
+        public DateTime CreatedDate { get; set; }
+
+        [BsonElement("updated-date")]
+        [BsonDateTimeOptions(DateOnly = true)]
+        public DateTime UpdatedDate { get; set; }
+
         //user input
         [BsonElement("name")]
         public string Name { get; set; }

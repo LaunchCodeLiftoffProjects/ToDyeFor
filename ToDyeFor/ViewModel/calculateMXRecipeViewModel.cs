@@ -13,6 +13,15 @@ namespace ToDyeFor.ViewModel
         [BsonId]
         public ObjectId Id { get; set; }
 
+        //Not sure if DateTime is needed in the ViewModel
+        [BsonElement("created-date")]
+        [BsonDateTimeOptions(DateOnly = true)]
+        public DateTime CreatedDate { get; set; }
+
+        [BsonElement("updated-date")]
+        [BsonDateTimeOptions(DateOnly = true)]
+        public DateTime UpdatedDate { get; set; }
+
         //user input
         [Required(ErrorMessage = "Please enter a recipe name.")]
         public string Name { get; set; }

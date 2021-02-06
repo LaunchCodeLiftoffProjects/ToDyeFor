@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ToDyeFor.Models
 {
-    public class UserRecipe
+    public class UserMXRecipe
     {
         public int UserId { get; set; }
 

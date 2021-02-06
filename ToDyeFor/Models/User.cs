@@ -9,7 +9,7 @@ namespace ToDyeFor.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<UserRecipe> UserRecipes { get; set; }
+        public List<UserMXRecipe> UserMXRecipes { get; set; }
         
         //public string Picture { get; set; }
 

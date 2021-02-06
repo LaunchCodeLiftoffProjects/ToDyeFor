@@ -1,5 +1,4 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+﻿
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,16 +9,12 @@ namespace ToDyeFor.ViewModel
 {
     public class calculateMXRecipeViewModel
     {
-        [BsonId]
-        public ObjectId Id { get; set; }
+
+        public int Id { get; set; }
 
         //Not sure if DateTime is needed in the ViewModel
-        [BsonElement("created-date")]
-        [BsonDateTimeOptions(DateOnly = true)]
         public DateTime CreatedDate { get; set; }
 
-        [BsonElement("updated-date")]
-        [BsonDateTimeOptions(DateOnly = true)]
         public DateTime UpdatedDate { get; set; }
 
         //user input

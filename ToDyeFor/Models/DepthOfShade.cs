@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace ToDyeFor.Models
 {
     public enum DepthOfShade
-    {
+    { //will not take perentage ammounts may need to change from enum to something else
         Pastel, //.25-.5%
         Pale, //1-2%
         Light, //3%

@@ -9,6 +9,7 @@
         <form id="calculator" asp-controller="?" asp-action="ProcessCalculation" method="post">
             <div class="tab">
                 <p>
+                    @*connect to FabricType enum*@
                     <label for="fabric">Choose Fabric: </label>
                     <select id="fabric">
                         <option value="optionone">One</option>
@@ -21,24 +22,24 @@
 
             <div class="tab">
                 <p>
+                    @*We only have one type of dye right now *@
                     <label for="dye">Choose Dye: </label>
                     <select id="dye">
-                        <option value="optionone">One</option>
-                        <option value="optiontwo">Two</option>
-                        <option value="optionthree">Three</option>
-                        <option value="optionfour">Four</option>
+                        <option value="MX Dye">Fiber Reactive Dye (Procion MX)</option>
                     </select>
                 </p>
             </div>
             <div class="tab">
                 <p>
+                    @*1 pound of fabric or (453.592g) is approximately 4 yards of cotton muslin.  So we will need to do some type of conversion somewhere*@
                     <label for="quantity">Amount of Fabric (in yards or weight): </label>
                     <select id="unitofmeasurement">
                         <option value="yards">Yards</option>
-                        <option value="weight">Grams?</option>
+                        <option value="weight">Grams</option>
                     </select>
                 </p>
                 <p>
+                     @* I think this might be better as a number selector or textbox which only takes numbers. sometimes these bar sliders can be hard to get the exact number you want*@
                     <div class="slidecontainer">
                         <input type="range" min="0" max="100" value="50" class="slider" id="quantityRange">
                         <br>Value: <span id="demo"></span>yards/weight@*makethiswhicheverwasclicked*@
@@ -47,6 +48,7 @@
             </div>
             <div class="tab">
                 <p>
+                    @*can we connect to the DepthOfShade enum and then set those values to the percentage?  I coulnd't get the numeric value to not produce an error I might need to fix that class to somthing more of a const or something??*@
                     Depth of Shade:
                     <div class="slidecontainer">
                         <input type="range" min="0" max="100" value="50" class="slider" id="depthRange">

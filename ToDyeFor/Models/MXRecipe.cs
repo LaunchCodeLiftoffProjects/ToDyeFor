@@ -8,14 +8,14 @@ namespace ToDyeFor.Models
         public int Id { get; set; }
 
         //How to use with SQL: https://www.entityframeworktutorial.net/faq/set-created-and-modified-date-in-efcore.aspx
-        //to just get date only in code use:  DateTime.Now
+
         public DateTime CreatedDate { get; set; }
 
         public DateTime UpdatedDate { get; set; }
 
         //user input
 
-        public string Name { get; set; }
+        public string Name { get; set; }//user can create a personalized recipe name
 
 
         public double ShadeDepth { get; set; }
@@ -24,9 +24,13 @@ namespace ToDyeFor.Models
         public double FabricWeight { get; set; }
 
 
-        public string DyeColor { get; set; }
+        public string DyeColor { get; set; }//user enters specific dye name (from manufacturer) 
 
-        //ingredients
+        public FabricType Fabric { get; set; }//this will be used as a tag used in search check box or radio
+
+        public ColorType Color { get; set; }//this will be used as a tag used in search check box
+
+        //ingredients 
 
         public double Salt { get; set; }
 

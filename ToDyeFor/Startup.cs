@@ -32,6 +32,7 @@ namespace ToDyeFor
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ToDyeForConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();

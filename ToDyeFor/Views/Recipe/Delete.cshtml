@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Delete Recipe</h1>
+
+<form method="post">
+    @foreach (var recipe in ViewBag.mxrecipes)
+    {
+        <div class="form-group">
+            <label>
+                <span>@recipe.Name</span>
+                <input type="checkbox" name="recipeIds" value="@recipe.Id" class="form-control">
+            </label>
+        </div>
+    }
+
+    <input type="submit" value="Delete Selected Recipes" class="btn btn-danger">
+
+</form>

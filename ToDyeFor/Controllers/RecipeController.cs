@@ -38,7 +38,9 @@ namespace ToDyeFor.Controllers
             MXRecipe newMXRecipe = new MXRecipe
             {
                 Name = calculateMXRecipeViewModel.Name,
-                DyeColor = calculateMXRecipeViewModel.DyeColor
+                DyeColor = calculateMXRecipeViewModel.DyeColor,                
+                ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
+                FabricWeight = calculateMXRecipeViewModel.FabricWeight,
             };
             RecipeData.Add(newMXRecipe);
             return Redirect("/Recipe");
@@ -48,9 +50,8 @@ namespace ToDyeFor.Controllers
         [Route("Recipe/Delete")]
         public IActionResult Delete()
         {
-            ViewBag.mxrecipes = RecipeData.GetAll();
-
-            return View();
+            List<MXRecipe> mxRecipes = new List<MXRecipe>(RecipeData.GetAll());
+            return View(mxRecipes);
         }
 
         [HttpPost]
@@ -61,7 +62,6 @@ namespace ToDyeFor.Controllers
             {
                 RecipeData.Remove(recipeId);
             }
-
             return Redirect("/Events");
         }
 
@@ -72,14 +72,14 @@ namespace ToDyeFor.Controllers
         {
             MXRecipe recipeById = RecipeData.GetById(recipeId);
             ViewBag.editRecipe = recipeById;
-            ViewBag.title = $"Edit Event {recipeById.Name}  (id={recipeById.Id})";
+            ViewBag.title = $"Edit {recipeById.Name}  (id={recipeById.Id})";
             return View();
         }
 
         //processes form
         [HttpPost]
         [Route("/Recipe/Edit")]
-        public IActionResult Edit(int recipeId, string name, string dyeColor)
+        public IActionResult SubmitEditRecipeForm(int recipeId, string name, string dyeColor)
         {
             MXRecipe recipeById = RecipeData.GetById(recipeId);
             recipeById.Name = name;

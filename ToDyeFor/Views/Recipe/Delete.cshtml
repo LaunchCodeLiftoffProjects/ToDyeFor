@@ -3,11 +3,14 @@
 *@
 @{
 }
+@using ToDyeFor.Models
+@model List<MXRecipe>
+
 
 <h1>Delete Recipe</h1>
 
 <form method="post">
-    @foreach (var recipe in ViewBag.mxrecipes)
+    @foreach (var recipe in Model)
     {
         <div class="form-group">
             <label>

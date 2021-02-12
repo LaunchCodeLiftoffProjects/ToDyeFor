@@ -30,6 +30,24 @@ else
             <th>
                 Dye Color
             </th>
+            <th>
+                Depth of Shade
+            </th>
+            <th>
+                Fabric Weight
+            </th>
+            <th>
+                Salt
+            </th>
+            <th>
+                Soda Ash
+            </th>
+            <th>
+                Water
+            </th>
+            <th>
+                Dye
+            </th>
         </tr>
         @foreach (var recipe in Model)
         {
@@ -37,6 +55,12 @@ else
                 <td>@recipe.Id</td>
                 <td>@recipe.Name</td>
                 <td>@recipe.DyeColor</td>
+                <td>@recipe.ShadeDepth</td>
+                <td>@recipe.FabricWeight</td>
+                <td>@recipe.Salt</td>
+                <td>@recipe.SodaAsh</td>
+                <td>@recipe.Water</td>
+                <td>@recipe.Dye</td>
                 <td><a asp-controller="Recipe" asp-action="Edit" asp-route-id="@recipe.Id">Edit</a></td>
             </tr>
         }

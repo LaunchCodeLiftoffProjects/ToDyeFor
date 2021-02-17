@@ -12,12 +12,17 @@ namespace ToDyeFor.Controllers
     public class RecipeController : Controller
     {
         static private List<MXRecipe> MXRecipes = new List<MXRecipe>();
+        private ApplicationDbContext context;
+        private List<MXRecipe> mxRecipes;
 
+        public RecipeController(ApplicationDbContext dbContext)
+        {
+            context = dbContext;
+            mxRecipes = context.MXRecipe.ToList();
+        }
         //get: Recipe
         public IActionResult Index()
         {
-            List<MXRecipe> mxRecipes = new List<MXRecipe>(RecipeData.GetAll());
-
             return View(mxRecipes);
         }
 
@@ -38,11 +43,16 @@ namespace ToDyeFor.Controllers
             MXRecipe newMXRecipe = new MXRecipe
             {
                 Name = calculateMXRecipeViewModel.Name,
-                DyeColor = calculateMXRecipeViewModel.DyeColor,                
+                DyeColor = calculateMXRecipeViewModel.DyeColor,
                 ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
                 FabricWeight = calculateMXRecipeViewModel.FabricWeight,
+                Salt = calculateMXRecipeViewModel.Salt(),
+                SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
+                Water = calculateMXRecipeViewModel.Water(),
+                Dye = calculateMXRecipeViewModel.Dye()
             };
-            RecipeData.Add(newMXRecipe);
+            context.MXRecipe.Add(newMXRecipe);
+            context.SaveChanges();
             return Redirect("/Recipe");
         }
 

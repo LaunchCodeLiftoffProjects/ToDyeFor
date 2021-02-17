@@ -31,13 +31,13 @@ namespace ToDyeFor.ViewModel
         public string DyeColor { get; set; }
 
         //ingredients
-        public double Salt { get; set; }
+        //public double Salt { get; set; }
 
-        public double SodaAsh { get; set; }
+        //public double SodaAsh { get; set; }
 
-        public double Water { get; set; }
+        //public double Water { get; set; }
 
-        public double Dye { get; set; }
+        //public double Dye { get; set; }
 
         public calculateMXRecipeViewModel(string name, double shadeDepth, double fabricWeight, string dyeColor)
         {
@@ -45,15 +45,32 @@ namespace ToDyeFor.ViewModel
             ShadeDepth = shadeDepth;
             FabricWeight = fabricWeight;
             DyeColor = dyeColor;
-            Salt = .5 * fabricWeight;
-            SodaAsh = .09 * fabricWeight;
-            Water = 20 * fabricWeight;
-            Dye = shadeDepth * fabricWeight;
+            //SodaAsh = .09 * fabricWeight;
+            //Water = 20 * fabricWeight;
+            //Dye = shadeDepth * fabricWeight;
         }
 
         public calculateMXRecipeViewModel() { }
 
+        public double Salt()
+        {
+            return FabricWeight * .5;
+        }
 
+        public double SodaAsh()
+        {
+            return .09 * FabricWeight;
+        }
+
+        public double Water()
+        {
+            return 20 * FabricWeight;
+        }
+
+        public double Dye()
+        {
+            return ShadeDepth * FabricWeight;
+        }
 
 
     }

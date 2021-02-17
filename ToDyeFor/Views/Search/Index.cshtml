@@ -1,0 +1,91 @@
+﻿@*<div class="text-lg-center">
+        <h1>@ViewBag.title</h1>
+
+            <p>
+            <h2>Search by Recipe Name:</h2>
+            <label for="searchTerm"> Recipe Name:</label>
+                <input type="text" name="searchTerm" id="searchTerm" />
+            </p>
+            <input type="submit" value="Search" />
+        </form>
+    </div>*@
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+
+<div class="searchBox">
+
+    <style>
+        body {
+            background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
+        }
+
+        .searchBox {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,50%);
+            background: #2f3640;
+            height: 60px;
+            border-radius: 60px;
+            padding: 10px;
+        }
+
+            .searchBox:hover > .searchInput {
+                width: 360px;
+                padding: 0 6px;
+            }
+
+            .searchBox:hover > .searchButton {
+                background: white;
+                color: #2f3640;
+            }
+
+        .searchButton {
+            color: white;
+            float: right;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #2f3640;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s;
+        }
+
+        .searchInput {
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            padding: 0;
+            color: white;
+            font-size: 16px;
+            transition: 0.4s;
+            line-height: 40px;
+            width: 0px;
+        }
+
+        @@media screen and (max-width: 620px) {
+            .searchBox:hover > .searchInput {
+                width: 150px;
+                padding: 0 6px;
+            }
+        }
+    </style>
+
+    <input class="searchInput" type="text" name="" placeholder="Search">
+    
+    <button class="searchButton" href="#">
+        <i class="material-icons">
+            search
+        </i>
+    </button>
+</div>

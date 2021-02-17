@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model ToDyeFor.Models.RecipeSearchModel
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    @Html.ValidationSummary(false)
+    <div style="border-bottom:1px solid #bbb"><h1>Search Product</h1></div>
+    <table style="border:0px; width:500px;">
+        <tr>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Name)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </div>
+            </td>
+            <td>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ColorType)
+                </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ColorType)
+                    @Html.ValidationMessageFor(model => model.ColorType)
+                </div>
+            </td>
+            <td style="vertical-align:bottom;">
+                <input name="SearchButton" type="submit" value="Search" />
+            </td>
+        </tr>
+    </table>
+
+    if (Model.SearchResult != null && Model.SearchResult.Count > 0)
+    {
+        <table class="table" style=" width:500px;">
+            <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Reorder Level</th>
+            </tr>
+            @foreach (var recipe in Model.SearchResult)
+            {
+                <tr>
+                    <td>@recipe.Id</td>
+                    <td>@recipe.Name</td>
+                    <td>@recipe.ShadeDepth</td>
+                    <td>@recipe.DyeColor</td>
+                    <td>@recipe.Color</td>
+                </tr>
+            }
+        </table>
+       @* @Html.PagedListPager(Model.SearchResult,
+          page => Url.Action("Index", new RouteValueDictionary()
+          {
+               { "Page", page },
+               { "ProductName", Model.Name },
+               { "Price", Model.id }
+          }),
+          PagedListRenderOptions.PageNumbersOnly)*@
+    }
+}

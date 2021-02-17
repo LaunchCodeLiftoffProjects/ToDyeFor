@@ -1,8 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@*@using (Html.BeginForm())
+{
+    <p>
+       Recipe name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}*@
+
+
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <p><a asp-controller="Search" asp-action="Index">Search Recipes</a></p>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

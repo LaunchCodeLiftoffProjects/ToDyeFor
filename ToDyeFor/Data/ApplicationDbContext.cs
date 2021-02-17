@@ -15,5 +15,9 @@ namespace ToDyeFor.Data
             : base(options)
         {
         }
+
+        public ApplicationDbContext()
+        {
+        }
     }
 }

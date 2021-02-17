@@ -62,7 +62,6 @@ namespace ToDyeFor.Controllers
         [Route("Recipe/Delete")]
         public IActionResult Delete()
         {
-            List<MXRecipe> mxRecipes = new List<MXRecipe>(RecipeData.GetAll());
             return View(mxRecipes);
         }
 
@@ -72,9 +71,13 @@ namespace ToDyeFor.Controllers
         {
             foreach (int recipeId in recipeIds)
             {
-                RecipeData.Remove(recipeId);
+                //RecipeData.Remove(recipeId);
+                MXRecipe theRecipe = context.MXRecipes.Find(recipeId);
+                context.MXRecipes.Remove(theRecipe);
             }
-            return Redirect("/Events");
+            context.SaveChanges();
+
+            return Redirect("/Recipe");
         }
 
         //get: Recipe/edit/eventId

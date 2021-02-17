@@ -18,7 +18,7 @@ namespace ToDyeFor.Controllers
         public RecipeController(ApplicationDbContext dbContext)
         {
             context = dbContext;
-            mxRecipes = context.MXRecipe.ToList();
+            mxRecipes = context.MXRecipes.ToList();
         }
         //get: Recipe
         public IActionResult Index()
@@ -51,7 +51,7 @@ namespace ToDyeFor.Controllers
                 Water = calculateMXRecipeViewModel.Water(),
                 Dye = calculateMXRecipeViewModel.Dye()
             };
-            context.MXRecipe.Add(newMXRecipe);
+            context.MXRecipes.Add(newMXRecipe);
             context.SaveChanges();
             return Redirect("/Recipe");
         }

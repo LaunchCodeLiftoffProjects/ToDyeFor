@@ -10,7 +10,7 @@ namespace ToDyeFor.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<MXRecipe> MXRecipe { get; set; }
+        public DbSet<MXRecipe> MXRecipes { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

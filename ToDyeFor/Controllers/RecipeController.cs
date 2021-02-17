@@ -46,6 +46,8 @@ namespace ToDyeFor.Controllers
                 DyeColor = calculateMXRecipeViewModel.DyeColor,
                 ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
                 FabricWeight = calculateMXRecipeViewModel.FabricWeight,
+                Color = calculateMXRecipeViewModel.Color,
+                Fabric = calculateMXRecipeViewModel.Fabric,
                 Salt = calculateMXRecipeViewModel.Salt(),
                 SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
                 Water = calculateMXRecipeViewModel.Water(),

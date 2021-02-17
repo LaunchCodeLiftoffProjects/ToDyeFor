@@ -9,7 +9,7 @@
     },
     "mssql2": {
       "type": "mssql",
-      "connectionId": "ToDyeForConnection"
+      "connectionId": "ToDyeFor"
     }
   }
 }

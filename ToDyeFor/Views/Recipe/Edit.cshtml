@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<h1>@ViewBag.title</h1>
+
+<form method="post" action="/Recipe/Edit">
+    <label for="name">Recipe Name:</label>
+    <input name="Name" value="@ViewBag.editRecipe.Name" id="name" type="text" />
+    <br />
+    <label>
+        @*using label in a different way that works the same*@
+        Dye Color:
+        <input name="Description" value="@ViewBag.editRecipe.DyeColor" id="dyeColor" type="text" />
+    </label>
+    <br />
+    <input type="hidden" value="@ViewBag.editRecipe.Id" name="recipeId" />
+    <input type="submit" value="Edit Recipe" />
+</form>

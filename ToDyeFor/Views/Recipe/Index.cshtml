@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using ToDyeFor.Models
+@model List<MXRecipe>
+
+<h1>Dye Recipes</h1>
+
+<p>
+    <a asp-controller="Recipe" asp-action="Calculator">Calculate Recipe</a>
+    <a asp-controller="Recipe" asp-action="Delete">Delete Recipes</a>
+</p>
+
+@if (Model.Count == 0)
+{
+    <p>No recipes yet!</p>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Recipe Name
+            </th>
+            <th>
+                Dye Color
+            </th>
+            <th>
+                Depth of Shade
+            </th>
+            <th>
+                Fabric Weight
+            </th>
+            <th>
+                Salt
+            </th>
+            <th>
+                Soda Ash
+            </th>
+            <th>
+                Water
+            </th>
+            <th>
+                Dye
+            </th>
+        </tr>
+        @foreach (var recipe in Model)
+        {
+            <tr>
+                <td>@recipe.Id</td>
+                <td>@recipe.Name</td>
+                <td>@recipe.DyeColor</td>
+                <td>@recipe.ShadeDepth</td>
+                <td>@recipe.FabricWeight</td>
+                <td>@recipe.Salt</td>
+                <td>@recipe.SodaAsh</td>
+                <td>@recipe.Water</td>
+                <td>@recipe.Dye</td>
+                <td><a asp-controller="Recipe" asp-action="Edit" asp-route-id="@recipe.Id">Edit</a></td>
+            </tr>
+        }
+    </table>
+}

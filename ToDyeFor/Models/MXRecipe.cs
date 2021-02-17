@@ -13,6 +13,7 @@ namespace ToDyeFor.Models
 
         public DateTime UpdatedDate { get; set; }
 
+        public Uri ImageUri { get; set; }
         //user input
 
         public string Name { get; set; }//user can create a personalized recipe name

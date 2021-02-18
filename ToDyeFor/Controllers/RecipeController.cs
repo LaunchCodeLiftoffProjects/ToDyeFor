@@ -93,11 +93,19 @@ namespace ToDyeFor.Controllers
         //processes form
         [HttpPost]
         [Route("/Recipe/Edit")]
-        public IActionResult SubmitEditRecipeForm(int recipeId, string name, string dyeColor)
+        public IActionResult SubmitEditRecipeForm(MXRecipe editRecipe)
         {
-            MXRecipe recipeById = context.MXRecipes.Find(recipeId);
-            recipeById.Name = name;
-            recipeById.DyeColor = dyeColor;
+            MXRecipe recipeById = context.MXRecipes.Find(editRecipe.Id);
+            recipeById.Name = editRecipe.Name;
+            recipeById.DyeColor = editRecipe.DyeColor;
+            recipeById.ShadeDepth = editRecipe.ShadeDepth;
+            recipeById.FabricWeight = editRecipe.FabricWeight;
+            //recipeById.Color = editRecipe.Color;
+            //recipeById.Fabric = editRecipe.Fabric;
+            //recipeById.Salt = editRecipe.Salt;
+            //recipeById.SodaAsh = editRecipe.SodaAsh;
+            //recipeById.Water = editRecipe.Water;
+            //recipeById.Dye = editRecipe.Dye;
             context.SaveChanges();
             return Redirect("/Recipe");
 

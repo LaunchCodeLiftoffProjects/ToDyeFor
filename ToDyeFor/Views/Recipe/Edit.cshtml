@@ -9,16 +9,29 @@
 <h1>Edit @Model.Name  (id=@Model.Id)</h1>
 
 <form method="post" action="/Recipe/Edit">
-    <label for="name">Recipe Name:</label>
-    <input name="Name" value="@Model.Name" id="name" type="text" />
-    <br />
-    <label>
-        @*using label in a different way that works the same*@
-        Dye Color:
-        <input name="dyeColor" value="@Model.DyeColor" id="dyeColor" type="text" />
+    <label asp-for="Name">
+        Recipe Name
+        <input asp-for="Name">
     </label>
     <br />
-    <input type="hidden" value="@Model.Id" name="recipeId" />
+    <label asp-for="DyeColor">
+        Dye Color
+        <input asp-for="DyeColor">
+    </label>
+    <br />
+    @* the calculations currently dont update
+        also need to figure out how to replicate the select options*@
+    <label asp-for="ShadeDepth">
+        Depth of Shade
+        <input asp-for="ShadeDepth">
+    </label>
+    <br />
+    <label asp-for="FabricWeight">
+        Weight of Fabric (grams)
+        <input asp-for="FabricWeight">
+    </label>
+    <br />
+    <input type="hidden" asp-for="Id" />
     <input type="submit" value="Edit Recipe" />
 </form>
 

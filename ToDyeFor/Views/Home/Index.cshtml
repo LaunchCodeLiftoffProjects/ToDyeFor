@@ -10,6 +10,7 @@
     <div id="calculator">
 
         <form id="calculator" asp-controller="Recipe" asp-action="Calculator" method="post">
+            @*step 1*@
             <div class="tab">
                 <p>
                     <label for="fabric">Choose Fabric: </label>
@@ -21,7 +22,7 @@
                     </select>
                 </p>
             </div>
-            @*step 1*@
+            @*step 2*@
             <div class="tab">
                 <p>
                     <label asp-for="DyeColor">Choose Dye: </label>
@@ -38,7 +39,7 @@
                     </select>
                 </p>
             </div>
-            @*step 2*@
+            @*step 3*@
             <div class="tab">
                 <p>
                     <label asp-for="FabricWeight">Amount of Fabric (in grams): </label>
@@ -51,7 +52,7 @@
                     </div>
                 </p>
             </div>
-            @*step 3*@
+            @*step 4*@
             <div class="tab">
                 <p>
                     <label asp-for="ShadeDepth">
@@ -65,7 +66,7 @@
                     </div>
                 </p>
             </div>
-            @*step 4*@
+            @*step 5*@
             <div class="tab">
                 <p>
                     Name your recipe:
@@ -83,6 +84,7 @@
 
             <!-- Circles which indicate the steps of the form: -->
             <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
@@ -105,8 +107,11 @@
             } else {
                 document.getElementById("prevBtn").style.display = "inline";
             }
-            if (n == (x.length - 1)) {
+            if (n == (x.length -1)) {
+            //if (n == 5) {
                 document.getElementById("nextBtn").innerHTML = "Submit";
+                document.getElementById("nextBtn").value = "Submit";
+
             } else {
                 document.getElementById("nextBtn").innerHTML = "Next";
             }
@@ -126,7 +131,10 @@
             // if you have reached the end of the form... :
             if (currentTab >= x.length) {
                 //...the form gets submitted:
-                document.getElementById("calculator").viewResults();
+                //need to connect to database here?
+                document.getElementById("nextBtn").onclick = submitForm();
+                document.getElementById("calculator").submitForm();
+
                 return false;
             }
             // Otherwise, display the correct tab:
@@ -184,12 +192,10 @@
             output2.innerHTML = this.value;
         }
 
-        // what happens when the click the submit button
-        function viewResults() {
-            var results = document.getElementById("calculator").submit();
-            results.onclick
-            console.log("Results" + results);
-            //return results;            
+        // what happens when they click the submit button
+        function submitForm() {
+            let confirmation = "You've submitted!";
+            alert(confirmation);
         }
 
 

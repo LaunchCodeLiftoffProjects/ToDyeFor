@@ -1,59 +1,62 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model ToDyeFor.ViewModel.calculateMXRecipeViewModel
 
 <div class="text-center">
     <h1 class="display-4">Magic your colorful solution below</h1>
     <div id="calculator">
 
-        <form id="calculator" asp-controller="?" asp-action="ProcessCalculation" method="post">
+        <form id="calculator" asp-controller="Home" asp-action="Index" method="post">
+
+
             <div class="tab">
-                <p>
-                    <label for="fabric">Choose Fabric: </label>
-                    <select id="fabric">
-                        <option value="optionone">One</option>
-                        <option value="optiontwo">Two</option>
-                        <option value="optionthree">Three</option>
-                        <option value="optionfour">Four</option>
-                    </select>
-                </p>
+                <label asp-for="Fabric">
+                    Fabric/Fiber Type
+                    <select asp-for="Fabric" asp-items="Model.FabricTypes"></select>
+                </label>
+            </div>
+
+            <div class="tab">
+                <label asp-for="FabricWeight">
+                    Weight of Fabric (grams)
+                    <input asp-for="FabricWeight">
+                </label>
+            </div>
+
+            <div class="tab">
+                <label asp-for="DyeColor">
+                    Dye Color
+                    <input asp-for="DyeColor">
+                </label>
+            </div>
+
+            <div class="tab">
+                <label asp-for="Color">
+                    Color
+                    <select asp-for="Color" asp-items="Model.ColorTypes"></select>
+                </label>
+            </div>
+
+            <div class="tab">
+                    Depth of Shade:
+                    <div class="slidecontainer">
+                        <input type="range" min=".5" max="8" value="4" class="slider" id="depthRange">
+                        <p>Value: <span id="depthRange"></span>%</p>
+                    </div>
             </div>
 
             <div class="tab">
                 <p>
-                    <label for="dye">Choose Dye: </label>
-                    <select id="dye">
-                        <option value="optionone">One</option>
-                        <option value="optiontwo">Two</option>
-                        <option value="optionthree">Three</option>
-                        <option value="optionfour">Four</option>
-                    </select>
-                </p>
-            </div>
-            <div class="tab">
-                <p>
-                    <label for="quantity">Amount of Fabric (in yards or weight): </label>
-                    <select id="unitofmeasurement">
-                        <option value="yards">Yards</option>
-                        <option value="weight">Grams?</option>
-                    </select>
-                </p>
-                <p>
-                    <div class="slidecontainer">
-                        <input type="range" min="0" max="100" value="50" class="slider" id="quantityRange">
-                        <br>Value: <span id="demo"></span>yards/weight@*makethiswhicheverwasclicked*@
-                    </div>
-                </p>
-            </div>
-            <div class="tab">
-                <p>
                     Depth of Shade:
-                    <div class="slidecontainer">
-                        <input type="range" min="0" max="100" value="50" class="slider" id="depthRange">
-                        <br>Value: <span id="demo"></span>%
-                    </div>
                 </p>
+                <div >
+                    <input type="range" min=".5" max="8" value="5" class="slider" id="myRange">
+                    <p>Value: <span id="demo"></span>%</p>
+                </div>
+                
             </div>
+
             <div style="overflow:auto;">
                 <div style="float:right;">
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -67,14 +70,26 @@
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
             </div>
         </form>
 
     </div>
+
+
     <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
+        //this displays the numbers below the range slider
+        //BUT WONT WORK!! WHY :(
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
 
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+        }
         function showTab(n) {
             // This function will display the specified tab of the form ...
             var x = document.getElementsByClassName("tab");
@@ -143,6 +158,15 @@
             }
             //... and adds the "active" class to the current step:
             x[n].className += " active";
+        }
+
+        //this displays the numbers below the range slider
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
         }
     </script>
 </div>

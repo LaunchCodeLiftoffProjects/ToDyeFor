@@ -2,56 +2,76 @@
     ViewData["Title"] = "Home Page";
 }
 
+@using ToDyeFor.ViewModel;
+@model calculateMXRecipeViewModel;
+
 <div class="text-center">
-    <h1 class="display-4">Magic your colorful solution below</h1>
+    Welcome to ToDyeFor! Calculate your recipe below or <a href="Home/About">click here</a> to learn more about us.
     <div id="calculator">
 
-        <form id="calculator" asp-controller="?" asp-action="ProcessCalculation" method="post">
+        <form id="calculator" asp-controller="Recipe" asp-action="Calculator" method="post">
             <div class="tab">
                 <p>
                     <label for="fabric">Choose Fabric: </label>
                     <select id="fabric">
-                        <option value="optionone">One</option>
-                        <option value="optiontwo">Two</option>
-                        <option value="optionthree">Three</option>
-                        <option value="optionfour">Four</option>
+                        <option value="optionone">Silk</option>
+                        <option value="optiontwo">Muslin</option>
+                        <option value="optionthree">Cotton</option>
+                        <option value="optionfour">Wool</option>
                     </select>
                 </p>
             </div>
-
+            @*step 1*@
             <div class="tab">
                 <p>
-                    <label for="dye">Choose Dye: </label>
+                    <label asp-for="DyeColor">Choose Dye: </label>
                     <select id="dye">
-                        <option value="optionone">One</option>
-                        <option value="optiontwo">Two</option>
-                        <option value="optionthree">Three</option>
-                        <option value="optionfour">Four</option>
+                        <option value="pink" asp-for="DyeColor">Pink</option>
+                        <option value="red" asp-for="DyeColor">Red</option>
+                        <option value="orange" asp-for="DyeColor">Orange</option>
+                        <option value="yellow" asp-for="DyeColor">Yellow</option>
+                        <option value="green" asp-for="DyeColor">Green</option>
+                        <option value="blue" asp-for="DyeColor">Blue</option>
+                        <option value="purple" asp-for="DyeColor">Purple</option>
+                        <option value="black" asp-for="DyeColor">Black</option>
+                        <option value="white" asp-for="DyeColor">White</option>
                     </select>
                 </p>
             </div>
+            @*step 2*@
             <div class="tab">
                 <p>
-                    <label for="quantity">Amount of Fabric (in yards or weight): </label>
-                    <select id="unitofmeasurement">
-                        <option value="yards">Yards</option>
-                        <option value="weight">Grams?</option>
-                    </select>
+                    <label asp-for="FabricWeight">Amount of Fabric (in grams): </label>
+
                 </p>
                 <p>
                     <div class="slidecontainer">
-                        <input type="range" min="0" max="100" value="50" class="slider" id="quantityRange">
-                        <br>Value: <span id="demo"></span>yards/weight@*makethiswhicheverwasclicked*@
+                        <input asp-for="FabricWeight" type="range" min="0" max="1000" value="500" class="slider" id="quantityRange">
+                        <br>Value: <span id="amount"></span> grams
                     </div>
                 </p>
             </div>
+            @*step 3*@
             <div class="tab">
                 <p>
-                    Depth of Shade:
+                    <label asp-for="ShadeDepth">
+                        Depth of Shade:
+                    </label>
+
                     <div class="slidecontainer">
-                        <input type="range" min="0" max="100" value="50" class="slider" id="depthRange">
-                        <br>Value: <span id="demo"></span>%
+                        <input asp-for="ShadeDepth" type="range" min="0" max="8" value="5" class="slider" id="depthRange">
+                        <br>Value: <span id="depth"></span>%
+
                     </div>
+                </p>
+            </div>
+            @*step 4*@
+            <div class="tab">
+                <p>
+                    Name your recipe:
+                    <label asp-for="Name">
+                        <input asp-for="Name">
+                    </label>
                 </p>
             </div>
             <div style="overflow:auto;">
@@ -61,7 +81,7 @@
                 </div>
             </div>
 
-            <!-- Circles which indicates the steps of the form: -->
+            <!-- Circles which indicate the steps of the form: -->
             <div style="text-align:center;margin-top:40px;">
                 <span class="step"></span>
                 <span class="step"></span>
@@ -106,12 +126,14 @@
             // if you have reached the end of the form... :
             if (currentTab >= x.length) {
                 //...the form gets submitted:
-                document.getElementById("calculator").submit();
+                document.getElementById("calculator").viewResults();
                 return false;
             }
             // Otherwise, display the correct tab:
             showTab(currentTab);
         }
+
+        
 
         function validateForm() {
             // This function deals with validation of the form fields
@@ -144,5 +166,32 @@
             //... and adds the "active" class to the current step:
             x[n].className += " active";
         }
+
+        // displays current value of sliders
+
+        var slider1 = document.getElementById("quantityRange");
+        var output1 = document.getElementById("amount");
+
+        output1.innerHTML = slider1.value;
+        slider1.oninput = function () {
+            output1.innerHTML = this.value;
+        }
+
+        var slider2 = document.getElementById("depthRange");
+        var output2 = document.getElementById("depth");
+        output2.innerHTML = slider2.value;
+        slider2.oninput = function () {
+            output2.innerHTML = this.value;
+        }
+
+        // what happens when the click the submit button
+        function viewResults() {
+            var results = document.getElementById("calculator").submit();
+            results.onclick
+            console.log("Results" + results);
+            //return results;            
+        }
+
+
     </script>
 </div>

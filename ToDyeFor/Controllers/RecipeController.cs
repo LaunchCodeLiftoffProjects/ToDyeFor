@@ -85,27 +85,37 @@ namespace ToDyeFor.Controllers
         public IActionResult Edit(int recipeId)
         {
             MXRecipe theRecipe= context.MXRecipes.Find(recipeId);
-            //ViewBag.editRecipe = theRecipe;
-            //ViewBag.title = $"Edit {recipeById.Name}  (id={recipeById.Id})";
-            return View(theRecipe);
+
+            calculateMXRecipeViewModel editVM = new calculateMXRecipeViewModel
+            {
+                Id = theRecipe.Id,
+                Name = theRecipe.Name,
+                DyeColor = theRecipe.DyeColor,
+                ShadeDepth = theRecipe.ShadeDepth,
+                FabricWeight = theRecipe.FabricWeight,
+                Color = theRecipe.Color,
+                Fabric = theRecipe.Fabric,
+            };
+
+            return View(editVM);
         }
 
         //processes form
         [HttpPost]
         [Route("/Recipe/Edit")]
-        public IActionResult SubmitEditRecipeForm(MXRecipe editRecipe)
+        public IActionResult SubmiteditVMForm(calculateMXRecipeViewModel editVM)
         {
-            MXRecipe recipeById = context.MXRecipes.Find(editRecipe.Id);
-            recipeById.Name = editRecipe.Name;
-            recipeById.DyeColor = editRecipe.DyeColor;
-            recipeById.ShadeDepth = editRecipe.ShadeDepth;
-            recipeById.FabricWeight = editRecipe.FabricWeight;
-            //recipeById.Color = editRecipe.Color;
-            //recipeById.Fabric = editRecipe.Fabric;
-            //recipeById.Salt = editRecipe.Salt;
-            //recipeById.SodaAsh = editRecipe.SodaAsh;
-            //recipeById.Water = editRecipe.Water;
-            //recipeById.Dye = editRecipe.Dye;
+            MXRecipe recipeById = context.MXRecipes.Find(editVM.Id);
+            recipeById.Name = editVM.Name;
+            recipeById.DyeColor = editVM.DyeColor;
+            recipeById.ShadeDepth = editVM.ShadeDepth;
+            recipeById.FabricWeight = editVM.FabricWeight;
+            recipeById.Color = editVM.Color;
+            recipeById.Fabric = editVM.Fabric;
+            recipeById.Salt = editVM.Salt();
+            recipeById.SodaAsh = editVM.SodaAsh();
+            recipeById.Water = editVM.Water();
+            recipeById.Dye = editVM.Dye();
             context.SaveChanges();
             return Redirect("/Recipe");
 

@@ -71,7 +71,6 @@ namespace ToDyeFor.Controllers
         {
             foreach (int recipeId in recipeIds)
             {
-                //RecipeData.Remove(recipeId);
                 MXRecipe theRecipe = context.MXRecipes.Find(recipeId);
                 context.MXRecipes.Remove(theRecipe);
             }
@@ -85,10 +84,10 @@ namespace ToDyeFor.Controllers
         [Route("/Recipe/Edit/{recipeId}")]
         public IActionResult Edit(int recipeId)
         {
-            MXRecipe recipeById = RecipeData.GetById(recipeId);
-            ViewBag.editRecipe = recipeById;
-            ViewBag.title = $"Edit {recipeById.Name}  (id={recipeById.Id})";
-            return View();
+            MXRecipe theRecipe= context.MXRecipes.Find(recipeId);
+            //ViewBag.editRecipe = theRecipe;
+            //ViewBag.title = $"Edit {recipeById.Name}  (id={recipeById.Id})";
+            return View(theRecipe);
         }
 
         //processes form
@@ -96,9 +95,10 @@ namespace ToDyeFor.Controllers
         [Route("/Recipe/Edit")]
         public IActionResult SubmitEditRecipeForm(int recipeId, string name, string dyeColor)
         {
-            MXRecipe recipeById = RecipeData.GetById(recipeId);
+            MXRecipe recipeById = context.MXRecipes.Find(recipeId);
             recipeById.Name = name;
             recipeById.DyeColor = dyeColor;
+            context.SaveChanges();
             return Redirect("/Recipe");
 
         }

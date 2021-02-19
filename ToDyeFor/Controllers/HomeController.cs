@@ -24,7 +24,7 @@ namespace ToDyeFor.Controllers
         }
 
         [HttpPost]
-        [Route("Home/Results")]
+        [Route("Home/Index")]
         public IActionResult Index(calculateMXRecipeViewModel calculateMXRecipeViewModel)
         {
             MXRecipe newMXRecipe = new MXRecipe
@@ -40,7 +40,7 @@ namespace ToDyeFor.Controllers
             };
             RecipeData.Add(newMXRecipe);
 
-            return Redirect("/Home/Results");
+            return Redirect("/Home/Index");
         }
 
         public IActionResult Results()
@@ -51,6 +51,11 @@ namespace ToDyeFor.Controllers
         }
 
         public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult ResultsIFrame()
         {
             return View();
         }

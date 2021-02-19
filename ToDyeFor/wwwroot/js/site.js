@@ -22,10 +22,16 @@ function showTab(n) {
     if (n == (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "Submit";
         document.getElementById("nextBtn").value = "Submit";
-
     } else {
         document.getElementById("nextBtn").innerHTML = "Next";
     }
+    //trying to make buttons go away
+    /*if (n == (x.length + 1)) {
+        document.getElementById("prevBtn").style.display = "none";
+        document.getElementById("nextBtn").style.display = "none";
+    } else {
+        document.getElementById("prevBtn").innerHTML = "i";
+    }*/
     // ... and run a function that displays the correct step indicator:
     fixStepIndicator(n)
 }
@@ -42,9 +48,8 @@ function nextPrev(n) {
     // if you have reached the end of the form... :
     if (currentTab >= x.length) {
         //...the form gets submitted:
-        //need to connect to database here?
+        //TODO: may need to connect model here?
         document.getElementById("nextBtn").onclick = submitForm();
-        document.getElementById("calculator").submitForm();
 
         return false;
     }
@@ -94,14 +99,18 @@ slider2.oninput = function () {
 
 // what happens when they click the submit button
 function submitForm() {
-    let confirmation = "You've submitted the following: ";
+    /*let confirmation = "You've submitted the following: ";
     let a = document.getElementById("name").value;
     let b = document.getElementById("fabric").value;
     let c = document.getElementById("dye").value;
     let d = document.getElementById("color").value;
     let e = document.getElementById("quantity").value;
     let f = document.getElementById("shade").value;
-    alert(confirmation + " " + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f);
+    alert(confirmation + " " + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f);*/
+
+    // TODO: I believe this is how/where the form should be submitting
+    document.getElementById("calculator").submit();
+
 }
 
 //

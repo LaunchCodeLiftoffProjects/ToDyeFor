@@ -1,9 +1,11 @@
 ﻿
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using ToDyeFor.Models;
 
 namespace ToDyeFor.ViewModel
 {
@@ -30,14 +32,34 @@ namespace ToDyeFor.ViewModel
         [Required(ErrorMessage = "Which MX Dye color are you using?")]
         public string DyeColor { get; set; }
 
-        //ingredients
-        //public double Salt { get; set; }
+        public FabricType Fabric { get; set; }//this will be used as a tag used in search check box or radio
 
-        //public double SodaAsh { get; set; }
+        public ColorType Color { get; set; }//this will be used as a tag used in search check box
 
-        //public double Water { get; set; }
+        public List<SelectListItem> ColorTypes { get; set; } = new List<SelectListItem>
+        {
+            new SelectListItem(ColorType.Red.ToString(), ((int)ColorType.Red).ToString()),
+            new SelectListItem(ColorType.Orange.ToString(), ((int)ColorType.Orange).ToString()),
+            new SelectListItem(ColorType.Yellow.ToString(), ((int)ColorType.Yellow).ToString()),
+            new SelectListItem(ColorType.Green.ToString(), ((int)ColorType.Green).ToString()),
+            new SelectListItem(ColorType.Blue.ToString(), ((int)ColorType.Blue).ToString()),
+            new SelectListItem(ColorType.Purple.ToString(), ((int)ColorType.Purple).ToString()),
+            new SelectListItem(ColorType.Black.ToString(), ((int)ColorType.Black).ToString())
+        };
 
-        //public double Dye { get; set; }
+       
+        public List<SelectListItem> FabricTypes { get; set; } = new List<SelectListItem>
+        {
+            new SelectListItem(FabricType.Cotton.ToString(), ((int)FabricType.Cotton).ToString()),
+            new SelectListItem(FabricType.Linen.ToString(), ((int)FabricType.Linen).ToString()),
+            new SelectListItem(FabricType.Hemp.ToString(), ((int)FabricType.Hemp).ToString()),
+            new SelectListItem(FabricType.Jute.ToString(), ((int)FabricType.Jute).ToString()),
+            new SelectListItem(FabricType.Sisal.ToString(), ((int)FabricType.Sisal).ToString()),
+            new SelectListItem(FabricType.Rayon.ToString(), ((int)FabricType.Rayon).ToString()),
+            new SelectListItem(FabricType.Silk.ToString(), ((int)FabricType.Silk).ToString()),
+            new SelectListItem(FabricType.Wool.ToString(), ((int)FabricType.Wool).ToString())
+        };
+
 
         public calculateMXRecipeViewModel(string name, double shadeDepth, double fabricWeight, string dyeColor)
         {
@@ -45,9 +67,6 @@ namespace ToDyeFor.ViewModel
             ShadeDepth = shadeDepth;
             FabricWeight = fabricWeight;
             DyeColor = dyeColor;
-            //SodaAsh = .09 * fabricWeight;
-            //Water = 20 * fabricWeight;
-            //Dye = shadeDepth * fabricWeight;
         }
 
         public calculateMXRecipeViewModel() { }

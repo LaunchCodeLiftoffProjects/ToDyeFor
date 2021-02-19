@@ -46,6 +46,8 @@ namespace ToDyeFor.Controllers
                 DyeColor = calculateMXRecipeViewModel.DyeColor,
                 ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
                 FabricWeight = calculateMXRecipeViewModel.FabricWeight,
+                Color = calculateMXRecipeViewModel.Color,
+                Fabric = calculateMXRecipeViewModel.Fabric,
                 Salt = calculateMXRecipeViewModel.Salt(),
                 SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
                 Water = calculateMXRecipeViewModel.Water(),
@@ -60,7 +62,6 @@ namespace ToDyeFor.Controllers
         [Route("Recipe/Delete")]
         public IActionResult Delete()
         {
-            List<MXRecipe> mxRecipes = new List<MXRecipe>(RecipeData.GetAll());
             return View(mxRecipes);
         }
 
@@ -70,9 +71,12 @@ namespace ToDyeFor.Controllers
         {
             foreach (int recipeId in recipeIds)
             {
-                RecipeData.Remove(recipeId);
+                MXRecipe theRecipe = context.MXRecipes.Find(recipeId);
+                context.MXRecipes.Remove(theRecipe);
             }
-            return Redirect("/Events");
+            context.SaveChanges();
+
+            return Redirect("/Recipe");
         }
 
         //get: Recipe/edit/eventId
@@ -80,20 +84,39 @@ namespace ToDyeFor.Controllers
         [Route("/Recipe/Edit/{recipeId}")]
         public IActionResult Edit(int recipeId)
         {
-            MXRecipe recipeById = RecipeData.GetById(recipeId);
-            ViewBag.editRecipe = recipeById;
-            ViewBag.title = $"Edit {recipeById.Name}  (id={recipeById.Id})";
-            return View();
+            MXRecipe theRecipe= context.MXRecipes.Find(recipeId);
+
+            calculateMXRecipeViewModel editVM = new calculateMXRecipeViewModel
+            {
+                Id = theRecipe.Id,
+                Name = theRecipe.Name,
+                DyeColor = theRecipe.DyeColor,
+                ShadeDepth = theRecipe.ShadeDepth,
+                FabricWeight = theRecipe.FabricWeight,
+                Color = theRecipe.Color,
+                Fabric = theRecipe.Fabric,
+            };
+
+            return View(editVM);
         }
 
         //processes form
         [HttpPost]
         [Route("/Recipe/Edit")]
-        public IActionResult SubmitEditRecipeForm(int recipeId, string name, string dyeColor)
+        public IActionResult SubmiteditVMForm(calculateMXRecipeViewModel editVM)
         {
-            MXRecipe recipeById = RecipeData.GetById(recipeId);
-            recipeById.Name = name;
-            recipeById.DyeColor = dyeColor;
+            MXRecipe recipeById = context.MXRecipes.Find(editVM.Id);
+            recipeById.Name = editVM.Name;
+            recipeById.DyeColor = editVM.DyeColor;
+            recipeById.ShadeDepth = editVM.ShadeDepth;
+            recipeById.FabricWeight = editVM.FabricWeight;
+            recipeById.Color = editVM.Color;
+            recipeById.Fabric = editVM.Fabric;
+            recipeById.Salt = editVM.Salt();
+            recipeById.SodaAsh = editVM.SodaAsh();
+            recipeById.Water = editVM.Water();
+            recipeById.Dye = editVM.Dye();
+            context.SaveChanges();
             return Redirect("/Recipe");
 
         }

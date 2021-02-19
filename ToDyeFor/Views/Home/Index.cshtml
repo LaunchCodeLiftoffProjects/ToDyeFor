@@ -59,7 +59,7 @@
                     </label>
 
                     <div class="slidecontainer">
-                        <input asp-for="ShadeDepth" type="range" min="0" max="8" value="5" class="slider" id="shade">
+                        <input asp-for="ShadeDepth" type="range" min="0" max="8" step="0.1" value="5" class="slider" id="shade">
                         <br>Value: <span id="depth"></span>%
 
                     </div>
@@ -95,9 +95,12 @@
     </div>
 
     <div>
-        this is where the results will go
-        ask to save
-        redirect to create user/login
+        <p>this is where the results will go</p>
+        @*<p>ask to save</p>
+        <p>redirect to create user/login</p>*@
+        <iframe src="Home/ResultsIFrame" name="iframe" title="Results Page" style="height:300px;width:300px"></iframe>
+
+        <p><a href="Home/ResultsIFrame" target="iframe">link</a></p>
     </div>
 
     @*<script src="site.js">

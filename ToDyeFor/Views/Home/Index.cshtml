@@ -9,50 +9,49 @@
     Welcome to ToDyeFor! Calculate your recipe below or <a href="Home/About">click here</a> to learn more about us.
     <div id="calculator">
 
-        <form id="calculator" asp-controller="Recipe" asp-action="Calculator" method="post">
+        <form id="calculator" asp-controller="Home" asp-action="Index" method="post">
             @*step 1*@
             <div class="tab">
                 <p>
-                    <label for="fabric">Choose Fabric: </label>
-                    <select id="fabric">
-                        <option value="silk">Silk</option>
-                        <option value="muslin">Muslin</option>
-                        <option value="cotton">Cotton</option>
-                        <option value="wool">Wool</option>
-                    </select>
+                    <label asp-for="Fabric">
+                        Fabric/Fiber Type
+                        <select asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
+                    </label>
                 </p>
             </div>
             @*step 2*@
             <div class="tab">
                 <p>
-                    <label asp-for="DyeColor">Choose Dye: </label>
-                    <select id="dye">
-                        <option value="pink" asp-for="DyeColor">Pink</option>
-                        <option value="red" asp-for="DyeColor">Red</option>
-                        <option value="orange" asp-for="DyeColor">Orange</option>
-                        <option value="yellow" asp-for="DyeColor">Yellow</option>
-                        <option value="green" asp-for="DyeColor">Green</option>
-                        <option value="blue" asp-for="DyeColor">Blue</option>
-                        <option value="purple" asp-for="DyeColor">Purple</option>
-                        <option value="black" asp-for="DyeColor">Black</option>
-                        <option value="white" asp-for="DyeColor">White</option>
-                    </select>
+                    <label asp-for="DyeColor">
+                        Dye Color
+                        <input asp-for="DyeColor" id="dye">
+                    </label>
                 </p>
             </div>
             @*step 3*@
             <div class="tab">
-                <p>
-                    <label asp-for="FabricWeight">Amount of Fabric (in grams): </label>
-
-                </p>
-                <p>
-                    <div class="slidecontainer">
-                        <input asp-for="FabricWeight" type="range" min="0" max="1000" value="500" class="slider" id="quantity">
-                        <br>Value: <span id="amount"></span> grams
-                    </div>
-                </p>
+                <label asp-for="Color">
+                    Color
+                    <select asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
+                </label>
             </div>
             @*step 4*@
+            <div class="tab">
+                <p>
+                    <label asp-for="FabricWeight">
+                        Weight of Fabric (grams)
+                        <input asp-for="FabricWeight" id="quantity">
+                    </label>
+
+                </p>
+                @*<p>
+                <div class="slidecontainer">
+                    <input asp-for="FabricWeight" type="range" min="0" max="1000" value="500" class="slider" id="quantity">
+                    <br>Value: <span id="amount"></span> grams
+                </div>
+            </p>*@
+            </div>
+            @*step 5*@
             <div class="tab">
                 <p>
                     <label asp-for="ShadeDepth">
@@ -66,12 +65,12 @@
                     </div>
                 </p>
             </div>
-            @*step 5*@
+            @*step 6*@
             <div class="tab">
                 <p>
                     Name your recipe:
                     <label asp-for="Name">
-                        <input asp-for="Name">
+                        <input asp-for="Name" id="name">
                     </label>
                 </p>
             </div>
@@ -89,10 +88,21 @@
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
+                <span class="step"></span>
             </div>
         </form>
 
     </div>
+
+    <div>
+        this is where the results will go
+        ask to save
+        redirect to create user/login
+    </div>
+
+    @*<script src="site.js">
+    </script>*@
+
     <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)
         showTab(currentTab); // Display the current tab
@@ -174,15 +184,9 @@
             x[n].className += " active";
         }
 
-        // displays current value of sliders
+        // displays current value of sliders--><!---->-->
 
-        var slider1 = document.getElementById("quantity");
-        var output1 = document.getElementById("amount");
-
-        output1.innerHTML = slider1.value;
-        slider1.oninput = function () {
-            output1.innerHTML = this.value;
-        }
+        
 
         var slider2 = document.getElementById("shade");
         var output2 = document.getElementById("depth");
@@ -194,12 +198,13 @@
         // what happens when they click the submit button
         function submitForm() {
             let confirmation = "You've submitted the following: ";
-            let a = document.getElementById("Name").value;
+            let a = document.getElementById("name").value;
             let b = document.getElementById("fabric").value;
             let c = document.getElementById("dye").value;
-            let d = document.getElementById("quantity").value;
-            let e = document.getElementById("shade").value;
-            alert(confirmation + " " + a + ", " + b + ", " + c + ", " + d + ", " + e);
+            let d = document.getElementById("color").value;
+            let e = document.getElementById("quantity").value;
+            let f = document.getElementById("shade").value;
+            alert(confirmation + " " + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f);
         }
 
 

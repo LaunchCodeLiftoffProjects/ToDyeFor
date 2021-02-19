@@ -15,10 +15,10 @@
                 <p>
                     <label for="fabric">Choose Fabric: </label>
                     <select id="fabric">
-                        <option value="optionone">Silk</option>
-                        <option value="optiontwo">Muslin</option>
-                        <option value="optionthree">Cotton</option>
-                        <option value="optionfour">Wool</option>
+                        <option value="silk">Silk</option>
+                        <option value="muslin">Muslin</option>
+                        <option value="cotton">Cotton</option>
+                        <option value="wool">Wool</option>
                     </select>
                 </p>
             </div>
@@ -47,7 +47,7 @@
                 </p>
                 <p>
                     <div class="slidecontainer">
-                        <input asp-for="FabricWeight" type="range" min="0" max="1000" value="500" class="slider" id="quantityRange">
+                        <input asp-for="FabricWeight" type="range" min="0" max="1000" value="500" class="slider" id="quantity">
                         <br>Value: <span id="amount"></span> grams
                     </div>
                 </p>
@@ -60,7 +60,7 @@
                     </label>
 
                     <div class="slidecontainer">
-                        <input asp-for="ShadeDepth" type="range" min="0" max="8" value="5" class="slider" id="depthRange">
+                        <input asp-for="ShadeDepth" type="range" min="0" max="8" value="5" class="slider" id="shade">
                         <br>Value: <span id="depth"></span>%
 
                     </div>
@@ -108,7 +108,6 @@
                 document.getElementById("prevBtn").style.display = "inline";
             }
             if (n == (x.length -1)) {
-            //if (n == 5) {
                 document.getElementById("nextBtn").innerHTML = "Submit";
                 document.getElementById("nextBtn").value = "Submit";
 
@@ -177,7 +176,7 @@
 
         // displays current value of sliders
 
-        var slider1 = document.getElementById("quantityRange");
+        var slider1 = document.getElementById("quantity");
         var output1 = document.getElementById("amount");
 
         output1.innerHTML = slider1.value;
@@ -185,7 +184,7 @@
             output1.innerHTML = this.value;
         }
 
-        var slider2 = document.getElementById("depthRange");
+        var slider2 = document.getElementById("shade");
         var output2 = document.getElementById("depth");
         output2.innerHTML = slider2.value;
         slider2.oninput = function () {
@@ -194,8 +193,13 @@
 
         // what happens when they click the submit button
         function submitForm() {
-            let confirmation = "You've submitted!";
-            alert(confirmation);
+            let confirmation = "You've submitted the following: ";
+            let a = document.getElementById("Name").value;
+            let b = document.getElementById("fabric").value;
+            let c = document.getElementById("dye").value;
+            let d = document.getElementById("quantity").value;
+            let e = document.getElementById("shade").value;
+            alert(confirmation + " " + a + ", " + b + ", " + c + ", " + d + ", " + e);
         }
 
 

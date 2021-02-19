@@ -36,15 +36,7 @@
                     Color
                     <select asp-for="Color" asp-items="Model.ColorTypes"></select>
                 </label>
-            </div>
-
-            <div class="tab">
-                    Depth of Shade:
-                    <div class="slidecontainer">
-                        <input type="range" min=".5" max="8" value="4" class="slider" id="depthRange">
-                        <p>Value: <span id="depthRange"></span>%</p>
-                    </div>
-            </div>
+            </div>>
 
             <div class="tab">
                 <p>
@@ -76,7 +68,17 @@
         </form>
 
     </div>
+    <div>
+        @if (Model == null)
+        {
+            <p>Fill out form to see results</p>
+        }
+        else
+        {
+            //dispay results
+        }
 
+    </div>
 
     <script>
         var currentTab = 0; // Current tab is set to be the first tab (0)

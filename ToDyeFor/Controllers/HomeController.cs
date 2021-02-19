@@ -13,12 +13,9 @@ namespace ToDyeFor.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        static private List<MXRecipe> MXRecipes = new List<MXRecipe>();
+
 
         [HttpGet]
         public IActionResult Index()
@@ -44,9 +41,15 @@ namespace ToDyeFor.Controllers
             };
             RecipeData.Add(newMXRecipe);
 
-            return View();
+            return Redirect("/Home/Results");
         }
 
+        public IActionResult Results()
+        {
+            List<MXRecipe> mxRecipes = new List<MXRecipe>(RecipeData.GetAll());
+
+            return View(mxRecipes);
+        }
 
         public IActionResult About()
         {

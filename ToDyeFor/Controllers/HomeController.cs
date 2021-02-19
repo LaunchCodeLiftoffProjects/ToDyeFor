@@ -17,6 +17,7 @@ namespace ToDyeFor.Controllers
 
 
         [HttpGet]
+        //js calculator
         public IActionResult Index()
         {
             calculateMXRecipeViewModel calculateMXRecipeViewModel = new calculateMXRecipeViewModel();
@@ -24,7 +25,7 @@ namespace ToDyeFor.Controllers
         }
 
         [HttpPost]
-        [Route("Home/Results")]
+        //[Route("Home/Results")]
         public IActionResult Index(calculateMXRecipeViewModel calculateMXRecipeViewModel)
         {
             MXRecipe newMXRecipe = new MXRecipe
@@ -38,16 +39,22 @@ namespace ToDyeFor.Controllers
                 Water = calculateMXRecipeViewModel.Water(),
                 Dye = calculateMXRecipeViewModel.Dye()
             };
-            RecipeData.Add(newMXRecipe);
 
-            return Redirect("/Home/Results");
+            return View("/Home/Results", newMXRecipe);
         }
 
+        [HttpGet]
+        public IActionResult Results(MXRecipe newMXRecipe)
+        {
+            return View(newMXRecipe);
+        }
+
+        [HttpPost]
         public IActionResult Results()
         {
-            List<MXRecipe> mxRecipes = new List<MXRecipe>(RecipeData.GetAll());
-
-            return View(mxRecipes);
+            //context.MXRecipes.Add(newMXRecipe);
+            //context.SaveChanges();
+            return Redirect("/Recipe/Index");
         }
 
         public IActionResult About()

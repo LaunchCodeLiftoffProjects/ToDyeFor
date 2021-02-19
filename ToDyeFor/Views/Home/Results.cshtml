@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MXRecipe
+
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Recipe Name
+        </th>
+        <th>
+            Dye Color
+        </th>
+        <th>
+            Depth of Shade
+        </th>
+        <th>
+            Fabric Weight
+        </th>
+        <th>
+            Salt
+        </th>
+        <th>
+            Soda Ash
+        </th>
+        <th>
+            Water
+        </th>
+        <th>
+            Dye
+        </th>
+    </tr>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Name</td>
+            <td>@Model.DyeColor</td>
+            <td>@Model.ShadeDepth</td>
+            <td>@Model.FabricWeight</td>
+            <td>@Model.Salt</td>
+            <td>@Model.SodaAsh</td>
+            <td>@Model.Water</td>
+            <td>@Model.Dye</td>
+        </tr>
+</table>

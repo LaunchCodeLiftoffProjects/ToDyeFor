@@ -10,7 +10,7 @@ using ToDyeFor.Data;
 namespace ToDyeFor.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210219024857_InitialMigration")]
+    [Migration("20210219032832_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -227,10 +227,7 @@ namespace ToDyeFor.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ApplicationUserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ApplicationUserId1")
+                    b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Color")
@@ -271,7 +268,7 @@ namespace ToDyeFor.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId1");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("MXRecipes");
                 });
@@ -331,7 +328,7 @@ namespace ToDyeFor.Migrations
                 {
                     b.HasOne("ToDyeFor.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
-                        .HasForeignKey("ApplicationUserId1");
+                        .HasForeignKey("ApplicationUserId");
                 });
 #pragma warning restore 612, 618
         }

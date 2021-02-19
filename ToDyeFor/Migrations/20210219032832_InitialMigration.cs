@@ -171,15 +171,14 @@ namespace ToDyeFor.Migrations
                     SodaAsh = table.Column<double>(nullable: false),
                     Water = table.Column<double>(nullable: false),
                     Dye = table.Column<double>(nullable: false),
-                    ApplicationUserId1 = table.Column<string>(nullable: true),
-                    ApplicationUserId = table.Column<int>(nullable: false)
+                    ApplicationUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MXRecipes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MXRecipes_AspNetUsers_ApplicationUserId1",
-                        column: x => x.ApplicationUserId1,
+                        name: "FK_MXRecipes_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -225,9 +224,9 @@ namespace ToDyeFor.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_MXRecipes_ApplicationUserId1",
+                name: "IX_MXRecipes_ApplicationUserId",
                 table: "MXRecipes",
-                column: "ApplicationUserId1");
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

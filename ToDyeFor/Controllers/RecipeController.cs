@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ToDyeFor.Data;
 using ToDyeFor.Models;
@@ -15,11 +16,24 @@ namespace ToDyeFor.Controllers
         private ApplicationDbContext context;
         private List<MXRecipe> mxRecipes;
 
-        public RecipeController(ApplicationDbContext dbContext)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public RecipeController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
         {
+            _userManager = userManager;
             context = dbContext;
             mxRecipes = context.MXRecipes.ToList();
         }
+
+
+        [HttpGet]
+        public async Task<string> GetCurrentUserId()
+        {
+            ApplicationUser usr = await GetCurrentUserAsync();
+            return usr?.Id;
+        }
+
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
         //get: Recipe
         public IActionResult Index()
         {
@@ -49,7 +63,8 @@ namespace ToDyeFor.Controllers
                 Salt = calculateMXRecipeViewModel.Salt(),
                 SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
                 Water = calculateMXRecipeViewModel.Water(),
-                Dye = calculateMXRecipeViewModel.Dye()
+                Dye = calculateMXRecipeViewModel.Dye(),
+                ApplicationUserId = GetCurrentUserId().ToString()
             };
             context.MXRecipes.Add(newMXRecipe);
             context.SaveChanges();

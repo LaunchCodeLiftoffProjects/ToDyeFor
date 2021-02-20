@@ -8,7 +8,6 @@
 <div class="text-center">
     Welcome to ToDyeFor! Calculate your recipe below or <a href="Home/About">click here</a> to learn more about us.
     <div id="calculator">
-
         <form id="calculator" asp-controller="Home" asp-action="Index" method="post">
             @*step 1*@
             <div class="tab">
@@ -68,6 +67,15 @@
                     </label>
                 </p>
             </div>
+            @*step 7*@
+            <div class="tab">
+                <p>
+                    Name your recipe:
+                    <label asp-for="Name">
+                        <input asp-for="Name" id="name">
+                    </label>
+                </p>
+            </div>
             <div style="overflow:auto;">
                 <div style="float:right;">
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -92,9 +100,9 @@
         <p>this is where the results will go</p>
         @*<p>ask to save</p>
         <p>redirect to create user/login</p>*@
-        <iframe src="Home/ResultsIFrame" name="iframe" title="Results Page" style="height:300px;width:300px"></iframe>
+        @*<iframe src="Home/ResultsIFrame" name="iframe" title="Results Page" style="height:300px;width:300px"></iframe>
 
-        <p><a href="Home/ResultsIFrame" target="iframe">link</a></p>
+        <p><a href="Home/ResultsIFrame" target="iframe">link</a></p>*@
     </div>
 
     <script src="site.js">

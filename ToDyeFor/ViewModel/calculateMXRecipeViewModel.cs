@@ -20,16 +20,16 @@ namespace ToDyeFor.ViewModel
         public DateTime UpdatedDate { get; set; }
 
         //user input
-        [Required(ErrorMessage = "Please enter a recipe name.")]
+        //[Required(ErrorMessage = "Please enter a recipe name.")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "How deep do you want the color to be?")]
+        //[Required(ErrorMessage = "How deep do you want the color to be?")]
         public double ShadeDepth { get; set; }
 
-        [Required(ErrorMessage = "How much fabric are you dyeing?")]
+        //[Required(ErrorMessage = "How much fabric are you dyeing?")]
         public double FabricWeight { get; set; }
 
-        [Required(ErrorMessage = "Which MX Dye color are you using?")]
+        //[Required(ErrorMessage = "Which MX Dye color are you using?")]
         public string DyeColor { get; set; }
 
         public FabricType Fabric { get; set; }//this will be used as a tag used in search check box or radio

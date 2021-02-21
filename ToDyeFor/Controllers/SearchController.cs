@@ -25,7 +25,16 @@ namespace ToDyeFor.Controllers
         }
         public IActionResult Results(string searchTerm)
         {
-            return View();
+            
+            List<MXRecipe> recipe;
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                recipe = context.Recipes
+                    .Include(j => j.Name)
+                    .ToList();
+
+            }
+            return View("Index");
         }
     }
 }

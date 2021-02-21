@@ -75,17 +75,18 @@
 
         @@media screen and (max-width: 620px) {
             .searchBox:hover > .searchInput {
-                width: 150px;
+                width: 240px;
                 padding: 0 6px;
             }
         }
     </style>
 
     <input class="searchInput" type="text" name="" placeholder="Search">
-    
-    <button class="searchButton" href="#">
-        <i class="material-icons">
-            search
-        </i>
-    </button>
+    <form action="/search/results" method="post">
+        <button class="searchButton" href="#">
+            <i class="material-icons">
+                search
+            </i>
+        </button>
+    </form>
 </div>

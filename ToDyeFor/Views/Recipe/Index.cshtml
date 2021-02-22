@@ -51,7 +51,7 @@ else
         </tr>
         @foreach (var recipe in Model)
         {
-            <tr style="background-color:@recipe.Color">
+            <tr>
                 <td>@recipe.Id</td>
                 <td>@recipe.Name</td>
                 <td>@recipe.DyeColor</td>
@@ -61,6 +61,7 @@ else
                 <td>@recipe.SodaAsh</td>
                 <td>@recipe.Water</td>
                 <td>@recipe.Dye</td>
+                <td style="background-color:@recipe.Color"></td>
                 <td><a asp-controller="Recipe" asp-action="Edit" asp-route-id="@recipe.Id">Edit</a></td>
             </tr>
         }

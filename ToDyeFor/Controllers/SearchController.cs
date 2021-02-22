@@ -14,6 +14,10 @@ namespace ToDyeFor.Controllers
     {
         private ApplicationDbContext context;
 
+        //private List<MXRecipe> mxRecipes;
+
+
+
         public SearchController(ApplicationDbContext dbContext)
         {
             context = dbContext;
@@ -21,11 +25,27 @@ namespace ToDyeFor.Controllers
 
         public IActionResult Index()
         {
+            //ViewBag.displayRecipes = null;
             return View();
         }
+
+        //[HttpPost]
+        //[Route("Search/Index")]
         public IActionResult Results(string searchTerm)
         {
-            return View();
+            List<MXRecipe> displayRecipes = new List<MXRecipe>();
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                displayRecipes = context.MXRecipes.ToList();
+            }
+            else
+            {
+                displayRecipes.AddRange(context.MXRecipes.ToList()
+                    .Where(r => r.Color.ToString()
+                    .Contains(searchTerm)).ToList());
+            }
+            ViewBag.displayRecipes = displayRecipes;
+            return View("Index");
         }
     }
 }

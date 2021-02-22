@@ -1,17 +1,4 @@
-﻿@*<div class="text-lg-center">
-        <h1>@ViewBag.title</h1>
-
-            <p>
-            <h2>Search by Recipe Name:</h2>
-            <label for="searchTerm"> Recipe Name:</label>
-                <input type="text" name="searchTerm" id="searchTerm" />
-            </p>
-            <input type="submit" value="Search" />
-        </form>
-    </div>*@
-
-
-
+﻿@using ToDyeFor.Models
 
 
 <head>
@@ -82,10 +69,70 @@
     </style>
 
     <input class="searchInput" type="text" name="" placeholder="Search">
-    
-    <button class="searchButton" href="#">
-        <i class="material-icons">
-            search
-        </i>
-    </button>
+
+    <form action="/search/results" method="post">
+        <button class="searchButton" href="#">
+            <i class="material-icons">
+                search
+            </i>
+        </button>
+    </form>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    @if (ViewBag.displayRecipes != null)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Recipe Name
+                </th>
+                <th>
+                    Dye Color
+                </th>
+                <th>
+                    Depth of Shade
+                </th>
+                <th>
+                    Fabric Weight
+                </th>
+                <th>
+                    Salt
+                </th>
+                <th>
+                    Soda Ash
+                </th>
+                <th>
+                    Water
+                </th>
+                <th>
+                    Dye
+                </th>
+            </tr>
+            @foreach (MXRecipe recipe in ViewBag.displayRecipes)
+            {
+                <tr>
+                    <td>@recipe.Id</td>
+                    <td>@recipe.Name</td>
+                    <td>@recipe.DyeColor</td>
+                    <td style="background-color:@recipe.Color"></td>
+                    <td>@recipe.ShadeDepth</td>
+                    <td>@recipe.FabricWeight</td>
+                    <td>@recipe.Salt</td>
+                    <td>@recipe.SodaAsh</td>
+                    <td>@recipe.Water</td>
+                    <td>@recipe.Dye</td>
+
+                    <td><a asp-controller="Recipe" asp-action="Edit" asp-route-id="@recipe.Id">Edit</a></td>
+                </tr>
+            }
+        </table>
+    }
+
 </div>
+

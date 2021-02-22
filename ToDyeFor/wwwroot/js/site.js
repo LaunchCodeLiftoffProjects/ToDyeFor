@@ -97,23 +97,29 @@ slider2.oninput = function () {
     output2.innerHTML = this.value;
 }
 
+
+//let name = document.getElementById("name").value;
+//let fabric = document.getElementById("fabric").value;
+//let dye = document.getElementById("dye").value;
+//let color = document.getElementById("color").value;
+//let quantity = document.getElementById("quantity").value;
+//let shade = document.getElementById("shade").value;
 // what happens when they click the submit button
 function submitForm() {
-    /*let confirmation = "You've submitted the following: ";
-    let a = document.getElementById("name").value;
-    let b = document.getElementById("fabric").value;
-    let c = document.getElementById("dye").value;
-    let d = document.getElementById("color").value;
-    let e = document.getElementById("quantity").value;
-    let f = document.getElementById("shade").value;
-    alert(confirmation + " " + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f);*/
 
+    //let confirmation = "You've submitted the following: ";
+
+    //alert(confirmation + " " + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f);*/
+    pilotStatus.innerHTML = `FORM SUBMIT. ${name.value} ${fabric.value} ${dye.value} ${color.value} ${quantity.value} ${shade.value}`;
     // TODO: I believe this is how/where the form should be submitting
-    document.getElementById("calculator").submit();
+    //document.getElementById("calculator").submit();
 
 }
 
 //
-//end of calculator form code
-
-    
+////end of calculator form code
+//let submit = document.getElementById('formSubmit');
+//let pilotStatus = document.getElementById('pilotStatus')
+//submit.addEventListener('click', function (event) {
+//    pilotStatus.innerHTML = `Pilot ${ShadeDepth.value} is ready.`;
+//       })

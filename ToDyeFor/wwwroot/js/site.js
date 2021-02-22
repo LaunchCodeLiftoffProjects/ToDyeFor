@@ -102,7 +102,7 @@ slider2.oninput = function () {
 function submitForm() {
     //this repopulates the text below the card tabs with the inputs and calculated results.
     recipeStatus.innerHTML = `Your recipe has been calculated!`;
-    named.innerHTML = `Name: ${name.value}`;
+    named.innerHTML = `Name: ${recipeName.value}`;
     fabricType.innerHTML = `Fabric / Fiber Type: ${fabric.value}`;
     fabricWeight.innerHTML = `Weight of Goods: ${quantity.value} grams`;
     dyeColor.innerHTML = `Dye Name: ${dye.value}`;

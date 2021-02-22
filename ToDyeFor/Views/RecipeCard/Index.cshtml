@@ -24,8 +24,8 @@
         @foreach (MXRecipe recipe in Model)
         {
             <section class="card-row">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/PSuGSqgsFXUWPJs_V-L67uGae_nJvzAiFm1R6CzqAOYZD8FQ-8w0t-_EtG71hK0vpoYbZIyI3t7oHLF0nIYrRBCycaAiKqs3RB-GEPdV" alt="Card image cap">
+                <div class="card" style="width: 18rem;background-color:@recipe.Color">
+                    @*<img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/PSuGSqgsFXUWPJs_V-L67uGae_nJvzAiFm1R6CzqAOYZD8FQ-8w0t-_EtG71hK0vpoYbZIyI3t7oHLF0nIYrRBCycaAiKqs3RB-GEPdV" alt="Card image cap">*@
                     <div class="card-body">
                         <h5 class="card-title">@recipe.Name</h5>
                         <p class="card-text">Last Updated: @recipe.UpdatedDate.Date</p>

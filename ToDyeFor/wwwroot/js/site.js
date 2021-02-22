@@ -106,13 +106,15 @@ slider2.oninput = function () {
 //let shade = document.getElementById("shade").value;
 // what happens when they click the submit button
 function submitForm() {
-
-    //let confirmation = "You've submitted the following: ";
-
-    //alert(confirmation + " " + a + ", " + b + ", " + c + ", " + d + ", " + e + ", " + f);*/
-    pilotStatus.innerHTML = `FORM SUBMIT. ${name.value} ${fabric.value} ${dye.value} ${color.value} ${quantity.value} ${shade.value}`;
-    // TODO: I believe this is how/where the form should be submitting
-    //document.getElementById("calculator").submit();
+    calculateResults.innerHTML = `${name.value} Recipe:
+Fabric/Fiber type: ${fabric.value} 
+Dye Name: ${dye.value} 
+Color Type: ${color.value} 
+Fabric Weight: ${quantity.value} grams
+Depth of Shade: ${shade.value}%
+Salt:
+Soda Ash:
+Dye: `;
 
 }
 

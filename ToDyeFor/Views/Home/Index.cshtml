@@ -18,23 +18,8 @@
                     </label>
                 </p>
             </div>
+
             @*step 2*@
-            <div class="tab">
-                <p>
-                    <label asp-for="DyeColor">
-                        Dye Color
-                        <input asp-for="DyeColor" id="dye">
-                    </label>
-                </p>
-            </div>
-            @*step 3*@
-            <div class="tab">
-                <label asp-for="Color">
-                    Color
-                    <select asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
-                </label>
-            </div>
-            @*step 4*@
             <div class="tab">
                 <p>
                     <label asp-for="FabricWeight">
@@ -44,6 +29,25 @@
 
                 </p>
             </div>
+
+            @*step 3*@
+            <div class="tab">
+                <p>
+                    <label asp-for="DyeColor">
+                        Dye Color
+                        <input asp-for="DyeColor" id="dye">
+                    </label>
+                </p>
+            </div>
+
+            @*step 4*@
+            <div class="tab">
+                <label asp-for="Color">
+                    Color
+                    <select asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
+                </label>
+            </div>
+
             @*step 5*@
             <div class="tab">
                 <p>
@@ -59,12 +63,13 @@
                 </p>
             </div>
             @*step 6*@
-        <div class="tab">
-            <label asp-for="Name">
-                Name
-                <input asp-for="Name" id="depth">
-            </label>
-        </div>
+            <div class="tab">
+                <label asp-for="Name">
+                    Name
+                    <input asp-for="Name" id="name">
+                </label>
+            </div>
+
             <div style="overflow:auto;">
                 <div style="float:right;">
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -85,16 +90,55 @@
 
     </div>
 
-    <div>
-        <p id="calculateResults">Submit form to calculate results</p>
-        @*<p>ask to save</p>
-        <p>redirect to create user/login</p>*@
-        @*<iframe src="Home/ResultsIFrame" name="iframe" title="Results Page" style="height:300px;width:300px"></iframe>
+    <div id="calculateResults">
+            <h2 id="recipeStatus">Submit form to calculate results</h2>
+            <div id="results">
+                <ul>
+                    <li id="named">Name:  </li>
+                    <li id="fabricType">Fabric/Fiber Type: </li>
+                    <li id="fabricWeight">Weight of Goods: </li>
+                    <li id="dyeColor">Dye Name: </li>
+                    <li id="colorType">Color: </li>
+                    <li id="shadeDepth">Depth of Shade: </li>
+                    <br />
+                    <li id="dyeCalc">Dye Amount: </li>
+                    <li id="saltCalc">Salt Amount: </li>
+                    <li id="sodaAshCalc">Soda Ash Amount:</li>
+                    <li id="waterCalc">Water Amount: </li>
+                </ul>
+            </div>
 
-        <p><a href="Home/ResultsIFrame" target="iframe">link</a></p>*@
+        @* TODO:: We need to now take the results that populate and send them as a form if ppl want to add to db.  
+                    the code below is the basic dye calulator made in the recipe view that we could use to add to db*@
+            @*<form method="post" asp-controller="Recipe" asp-action="Calculator">
+                <div class="form-group">
+                    <label asp-for="Name">
+                        Recipe Name
+                        <input asp-for="Name">
+                    </label>
+                    <label asp-for="DyeColor">
+                        Dye Color
+                        <input asp-for="DyeColor">
+                    </label>
+                    <label asp-for="ShadeDepth">
+                        Depth of Shade
+                        <input asp-for="ShadeDepth">
+                    </label>
+                    <label asp-for="FabricWeight">
+                        Weight of Fabric (grams)
+                        <input asp-for="FabricWeight">
+                    </label>
+                </div>
+                <input type="submit" value="Calculate Recipe" />
+            </form>*@
+            @*<p>ask to save</p>
+            <p>redirect to create user/login</p>*@
+            @*<iframe src="Home/ResultsIFrame" name="iframe" title="Results Page" style="height:300px;width:300px"></iframe>
+
+            <p><a href="Home/ResultsIFrame" target="iframe">link</a></p>*@
+        </div>
+
+        <script src="site.js">
+        </script>
+
     </div>
-
-    <script src="site.js">
-    </script>
-
-</div>

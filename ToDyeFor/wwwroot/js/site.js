@@ -98,30 +98,20 @@ slider2.oninput = function () {
 }
 
 
-//let name = document.getElementById("name").value;
-//let fabric = document.getElementById("fabric").value;
-//let dye = document.getElementById("dye").value;
-//let color = document.getElementById("color").value;
-//let quantity = document.getElementById("quantity").value;
-//let shade = document.getElementById("shade").value;
 // what happens when they click the submit button
 function submitForm() {
-    calculateResults.innerHTML = `${name.value} Recipe:
-Fabric/Fiber type: ${fabric.value} 
-Dye Name: ${dye.value} 
-Color Type: ${color.value} 
-Fabric Weight: ${quantity.value} grams
-Depth of Shade: ${shade.value}%
-Salt:
-Soda Ash:
-Dye: `;
-
+    //this repopulates the text below the card tabs with the inputs and calculated results.
+    recipeStatus.innerHTML = `Your recipe has been calculated!`;
+    named.innerHTML = `Name: ${name.value}`;
+    fabricType.innerHTML = `Fabric / Fiber Type: ${fabric.value}`;
+    fabricWeight.innerHTML = `Weight of Goods: ${quantity.value} grams`;
+    dyeColor.innerHTML = `Dye Name: ${dye.value}`;
+    colorType.innerHTML = `Color: ${color.value}`;
+    shadeDepth.innerHTML = `Depth of Shade: ${shade.value}%`;
+    dyeCalc.innerHTML = `Dye Amount: ${((shade.value)/100) * (quantity.value)} grams`;
+    saltCalc.innerHTML = `Salt Amount: ${(quantity.value) * .5 } grams`;
+    sodaAshCalc.innerHTML = `Soda Ash Amount: ${(quantity.value) * .09} grams`;
+    waterCalc.innerHTML = `Water Amount: ${(quantity.value) * 20} mL`;
 }
 
-//
-////end of calculator form code
-//let submit = document.getElementById('formSubmit');
-//let pilotStatus = document.getElementById('pilotStatus')
-//submit.addEventListener('click', function (event) {
-//    pilotStatus.innerHTML = `Pilot ${ShadeDepth.value} is ready.`;
-//       })
+//TODO:  We need to find a way to model bind so that the inputs from the select lists will display the proper value. 

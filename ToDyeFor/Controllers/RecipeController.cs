@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ namespace ToDyeFor.Controllers
         static private List<MXRecipe> MXRecipes = new List<MXRecipe>();
         private ApplicationDbContext context;
         private List<MXRecipe> mxRecipes;
+        
 
         private readonly UserManager<ApplicationUser> _userManager;
         public RecipeController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
@@ -64,8 +66,8 @@ namespace ToDyeFor.Controllers
                 SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
                 Water = calculateMXRecipeViewModel.Water(),
                 Dye = calculateMXRecipeViewModel.Dye(),
-                ApplicationUserId = GetCurrentUserId().ToString()
-            };
+                ApplicationUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier)
+        };
             context.MXRecipes.Add(newMXRecipe);
             context.SaveChanges();
             return Redirect("/Recipe");

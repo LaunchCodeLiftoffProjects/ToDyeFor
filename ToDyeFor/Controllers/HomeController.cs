@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ToDyeFor.Data;
@@ -15,11 +17,11 @@ namespace ToDyeFor.Controllers
     {
         private ApplicationDbContext context;
 
+
         public HomeController(ApplicationDbContext dbContext)
         {
             context = dbContext;
         }
-
 
         [HttpGet]
         //js calculator
@@ -30,9 +32,11 @@ namespace ToDyeFor.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         //[Route("Home/Results")]
         public IActionResult Index(calculateMXRecipeViewModel calculateMXRecipeViewModel)
         {
+
             MXRecipe newMXRecipe = new MXRecipe
             {
                 Name = calculateMXRecipeViewModel.Name,
@@ -44,7 +48,8 @@ namespace ToDyeFor.Controllers
                 Salt = calculateMXRecipeViewModel.Salt(),
                 SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
                 Water = calculateMXRecipeViewModel.Water(),
-                Dye = calculateMXRecipeViewModel.Dye()
+                Dye = calculateMXRecipeViewModel.Dye(),
+                ApplicationUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier)
             };
             context.MXRecipes.Add(newMXRecipe);
             context.SaveChanges();

@@ -13,15 +13,6 @@
         <div id="calculator">
 
             @*step 1*@
-            <!--<div class="tab">
-                <p>
-                    <label asp-for="Fabric">
-                        Fabric/Fiber Type
-                        <select asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
-                    </label>
-                </p>
-            </div>-->
-            @*step 2*@
             <div class="tab">
                 <p>
                     <label asp-for="FabricWeight">
@@ -32,23 +23,8 @@
                 </p>
             </div>
 
-            @*step 3*@
-            <!--<div class="tab">
-                <p>
-                    <label asp-for="DyeColor">
-                        Dye Color
-                        <input asp-for="DyeColor" id="dye">
-                    </label>
-                </p>
-            </div>-->
-            @*step 4*@
-            <!--<div class="tab">
-                <label asp-for="Color">
-                    Color
-                    <select asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
-                </label>
-            </div>-->
-            @*step 5*@
+           
+            @*step 2*@
             <div class="tab">
                 <p>
                     <label asp-for="ShadeDepth">
@@ -62,13 +38,7 @@
                     </div>
                 </p>
             </div>
-            @*step 6*@
-            @*<div class="tab">
-                    <label asp-for="Name">
-                        Name
-                        <input asp-for="Name" id="recipeName">
-                    </label>
-                </div>*@
+         
 
             <div style="overflow:auto;">
                 <div style="float:right;">
@@ -81,10 +51,6 @@
             <div style="text-align:center;margin-top:40px;">
                 <span class="step"></span>
                 <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
             </div>
 
         </div>
@@ -93,11 +59,7 @@
             <h2 id="recipeStatus">Submit form to calculate results</h2>
             <div id="results">
                 <ul>
-                    @*<li id="named">Name:  </li>
-                        <li id="fabricType">Fabric/Fiber Type: </li>*@
                     <li id="fabricWeight">Weight of Goods: </li>
-                    @*<li id="dyeColor">Dye Name: </li>
-                        <li id="colorType">Color: </li>*@
                     <li id="shadeDepth">Depth of Shade: </li>
                     <br />
                     <li id="dyeCalc">Dye Amount: </li>

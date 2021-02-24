@@ -87,7 +87,7 @@ namespace ToDyeFor.ViewModel
 
         public double Dye()
         {
-            return ShadeDepth * FabricWeight;
+            return (ShadeDepth/100) * FabricWeight;
         }
 
 

@@ -20,8 +20,9 @@
             <input asp-for="DyeColor">
         </label>
         <label asp-for="ShadeDepth">
-            Depth of Shade
-            <input asp-for="ShadeDepth">
+            Depth of Shade:
+                <input asp-for="ShadeDepth" type="range" min="0" max="8" step="0.1" value="5" class="slider" id="shade">
+                <br>Value: <span id="depth"></span>%
         </label>
         <label asp-for="FabricWeight">
             Weight of Fabric (grams)

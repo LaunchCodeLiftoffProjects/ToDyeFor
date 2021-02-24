@@ -100,13 +100,14 @@ slider2.oninput = function () {
 
 // what happens when they click the submit button
 function submitForm() {
-    //this repopulates the text below the card tabs with the inputs and calculated results.
+    //this repopulates the text below the card tabs with the inputs and calculated results and makes rest of form visible.
+    save.style.visibility = 'visible'
     recipeStatus.innerHTML = `Your recipe has been calculated!`;
-    named.innerHTML = `Name: ${recipeName.value}`;
-    fabricType.innerHTML = `Fabric / Fiber Type: ${fabric.value}`;
+    //named.innerHTML = `Name: ${recipeName.value}`;
+    //fabricType.innerHTML = `Fabric / Fiber Type: ${fabric.value}`;
     fabricWeight.innerHTML = `Weight of Goods: ${quantity.value} grams`;
-    dyeColor.innerHTML = `Dye Name: ${dye.value}`;
-    colorType.innerHTML = `Color: ${color.value}`;
+    //dyeColor.innerHTML = `Dye Name: ${dye.value}`;
+    //colorType.innerHTML = `Color: ${color.value}`;
     shadeDepth.innerHTML = `Depth of Shade: ${shade.value}%`;
     dyeCalc.innerHTML = `Dye Amount: ${((shade.value)/100) * (quantity.value)} grams`;
     saltCalc.innerHTML = `Salt Amount: ${(quantity.value) * .5 } grams`;

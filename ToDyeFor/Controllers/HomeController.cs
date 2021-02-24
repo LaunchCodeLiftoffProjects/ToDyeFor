@@ -34,28 +34,30 @@ namespace ToDyeFor.Controllers
                 DyeColor = calculateMXRecipeViewModel.DyeColor,
                 ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
                 FabricWeight = calculateMXRecipeViewModel.FabricWeight,
+                Color = calculateMXRecipeViewModel.Color, 
+                Fabric = calculateMXRecipeViewModel.Fabric,
                 Salt = calculateMXRecipeViewModel.Salt(),
                 SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
                 Water = calculateMXRecipeViewModel.Water(),
                 Dye = calculateMXRecipeViewModel.Dye()
             };
 
-            return View("/Home/Results", newMXRecipe);
+            return View("/Recipe/Index", newMXRecipe);
         }
 
-        [HttpGet]
-        public IActionResult Results(MXRecipe newMXRecipe)
-        {
-            return View(newMXRecipe);
-        }
+        //[HttpGet]
+        //public IActionResult Results(MXRecipe newMXRecipe)
+        //{
+        //    return View(newMXRecipe);
+        //}
 
-        [HttpPost]
-        public IActionResult Results()
-        {
-            //context.MXRecipes.Add(newMXRecipe);
-            //context.SaveChanges();
-            return Redirect("/Recipe/Index");
-        }
+        //[HttpPost]
+        //public IActionResult Results()
+        //{
+        //    //context.MXRecipes.Add(newMXRecipe);
+        //    //context.SaveChanges();
+        //    return Redirect("/Recipe/Index");
+        //}
 
         public IActionResult About()
         {

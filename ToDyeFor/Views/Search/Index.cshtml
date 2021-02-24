@@ -8,7 +8,7 @@
 
 <div class="searchBox">
 
-    <style>
+    @*<style>
         body {
             background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
         }
@@ -66,11 +66,12 @@
                 padding: 0 6px;
             }
         }
-    </style>
+    </style>*@
 
-    <input class="searchInput" type="text" name="" placeholder="Search">
+    
 
     <form action="/search/results" method="post">
+        <input class="searchInput" type="text" name="searchInput" placeholder="">
         <button class="searchButton" href="#">
             <i class="material-icons">
                 search
@@ -120,14 +121,13 @@
                     <td>@recipe.Id</td>
                     <td>@recipe.Name</td>
                     <td>@recipe.DyeColor</td>
-                    <td style="background-color:@recipe.Color"></td>
                     <td>@recipe.ShadeDepth</td>
                     <td>@recipe.FabricWeight</td>
                     <td>@recipe.Salt</td>
                     <td>@recipe.SodaAsh</td>
                     <td>@recipe.Water</td>
                     <td>@recipe.Dye</td>
-
+                    <td style="background-color:@recipe.Color"></td>
                     <td><a asp-controller="Recipe" asp-action="Edit" asp-route-id="@recipe.Id">Edit</a></td>
                 </tr>
             }

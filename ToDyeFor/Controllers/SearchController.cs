@@ -14,13 +14,14 @@ namespace ToDyeFor.Controllers
     {
         private ApplicationDbContext context;
 
-        //private List<MXRecipe> mxRecipes;
+        private List<MXRecipe> mxRecipes;
 
 
 
         public SearchController(ApplicationDbContext dbContext)
         {
             context = dbContext;
+            mxRecipes = context.MXRecipes.ToList();
         }
 
         public IActionResult Index()
@@ -31,21 +32,42 @@ namespace ToDyeFor.Controllers
 
         //[HttpPost]
         //[Route("Search/Index")]
-        public IActionResult Results(string searchTerm)
+        public IActionResult Results(string searchInput)
         {
             List<MXRecipe> displayRecipes = new List<MXRecipe>();
-            if (string.IsNullOrEmpty(searchTerm))
+            if (string.IsNullOrEmpty(searchInput))
             {
-                displayRecipes = context.MXRecipes.ToList();
+                displayRecipes = mxRecipes;
             }
             else
             {
-                displayRecipes.AddRange(context.MXRecipes.ToList()
-                    .Where(r => r.Color.ToString()
-                    .Contains(searchTerm)).ToList());
+                string lowercaseTerm = searchInput.ToLower();
+                foreach (MXRecipe r in mxRecipes)
+                {
+                    if (r.Name.ToLower().Contains(lowercaseTerm))
+                    {
+                        displayRecipes.Add(r);
+                    }else if (r.DyeColor.ToLower().Contains(lowercaseTerm))
+                    {
+                        displayRecipes.Add(r);
+                    }else if (r.Color.ToString().ToLower().Contains(lowercaseTerm))
+                    {
+                        displayRecipes.Add(r);
+                    }
+                }
+                //string lowercaseTerm = searchTerm.ToLower();
+                //displayRecipes.AddRange(mxRecipes
+                //    .Where(r => r.Color.ToString().ToLower()
+                //    .Contains(searchTerm)).ToList());
+                //displayRecipes.AddRange(mxRecipes
+                //    .Where(r => r.DyeColor.ToString().ToLower()
+                //    .Contains(searchTerm)).ToList());
+                //displayRecipes.AddRange(mxRecipes
+                //    .Where(r => r.Name.ToString().ToLower()
+                //    .Contains(searchTerm)).ToList());
             }
             ViewBag.displayRecipes = displayRecipes;
             return View("Index");
-        }
+         }
     }
 }

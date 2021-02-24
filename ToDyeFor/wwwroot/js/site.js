@@ -5,6 +5,14 @@
 
 //
 //the following code creates the "tabs" of our calculator form & is modifed from W3Schools
+// displays current value of shade depth slider
+var slider2 = document.getElementById("shade");
+var output2 = document.getElementById("depth");
+output2.innerHTML = `${slider2.value}`;
+slider2.oninput = function () {
+    output2.innerHTML = `${this.value}`;
+}
+
 
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
@@ -92,9 +100,9 @@ function fixStepIndicator(n) {
 // displays current value of shade depth slider
 var slider2 = document.getElementById("shade");
 var output2 = document.getElementById("depth");
-output2.innerHTML = slider2.value;
+output2.innerHTML = `${slider2.value}`;
 slider2.oninput = function () {
-    output2.innerHTML = this.value;
+    output2.innerHTML = `${this.value}`;
 }
 
 

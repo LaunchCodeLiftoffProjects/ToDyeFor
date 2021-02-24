@@ -18,23 +18,12 @@ namespace ToDyeFor.Controllers
         private List<MXRecipe> mxRecipes;
         
 
-        private readonly UserManager<ApplicationUser> _userManager;
-        public RecipeController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
+        //private readonly UserManager<ApplicationUser> _userManager;
+        public RecipeController(ApplicationDbContext dbContext)
         {
-            _userManager = userManager;
             context = dbContext;
             mxRecipes = context.MXRecipes.ToList();
         }
-
-
-        [HttpGet]
-        public async Task<string> GetCurrentUserId()
-        {
-            ApplicationUser usr = await GetCurrentUserAsync();
-            return usr?.Id;
-        }
-
-        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         //get: Recipe
         public IActionResult Index()

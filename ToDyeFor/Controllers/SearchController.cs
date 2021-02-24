@@ -69,7 +69,7 @@ namespace ToDyeFor.Controllers
                 //    .Contains(searchTerm)).ToList());
             }
             ViewBag.displayRecipes = displayRecipes;
-            return View("Index");
+            return View("Results");
         }
     }
 }

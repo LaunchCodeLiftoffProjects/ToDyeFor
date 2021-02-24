@@ -102,6 +102,7 @@ slider2.oninput = function () {
 function submitForm() {
     //this repopulates the text below the card tabs with the inputs and calculated results and makes rest of form visible.
     save.style.visibility = 'visible'
+    results.style.visibility = 'visible'
     recipeStatus.innerHTML = `Your recipe has been calculated!`;
     fabricWeight.innerHTML = `Weight of Goods: ${quantity.value} grams`;
     shadeDepth.innerHTML = `Depth of Shade: ${shade.value}%`;

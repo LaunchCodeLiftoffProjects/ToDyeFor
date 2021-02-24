@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ToDyeFor.Data;
@@ -11,12 +12,14 @@ using ToDyeFor.ViewModel;
 
 namespace ToDyeFor.Controllers
 {
+    [Authorize]
     public class RecipeController : Controller
     {
         static private List<MXRecipe> MXRecipes = new List<MXRecipe>();
         private ApplicationDbContext context;
         private List<MXRecipe> mxRecipes;
-        
+        private List<MXRecipe> userRecipes;
+
 
         //private readonly UserManager<ApplicationUser> _userManager;
         public RecipeController(ApplicationDbContext dbContext)
@@ -28,7 +31,9 @@ namespace ToDyeFor.Controllers
         //get: Recipe
         public IActionResult Index()
         {
-            return View(mxRecipes);
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            userRecipes = mxRecipes.Where(x => x.ApplicationUserId == this.User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
+            return View(userRecipes);
         }
 
         //retrieves form
@@ -68,7 +73,7 @@ namespace ToDyeFor.Controllers
         [Route("Recipe/Delete")]
         public IActionResult Delete()
         {
-            return View(mxRecipes);
+            return View(userRecipes);
         }
 
         [HttpPost]

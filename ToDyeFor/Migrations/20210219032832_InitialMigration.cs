@@ -39,7 +39,8 @@ namespace ToDyeFor.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    AccessFailedCount = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -152,6 +153,37 @@ namespace ToDyeFor.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "MXRecipes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CreatedDate = table.Column<DateTime>(nullable: false),
+                    UpdatedDate = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    ShadeDepth = table.Column<double>(nullable: false),
+                    FabricWeight = table.Column<double>(nullable: false),
+                    DyeColor = table.Column<string>(nullable: true),
+                    Fabric = table.Column<int>(nullable: false),
+                    Color = table.Column<int>(nullable: false),
+                    Salt = table.Column<double>(nullable: false),
+                    SodaAsh = table.Column<double>(nullable: false),
+                    Water = table.Column<double>(nullable: false),
+                    Dye = table.Column<double>(nullable: false),
+                    ApplicationUserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MXRecipes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MXRecipes_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -190,6 +222,11 @@ namespace ToDyeFor.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MXRecipes_ApplicationUserId",
+                table: "MXRecipes",
+                column: "ApplicationUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -208,6 +245,9 @@ namespace ToDyeFor.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "MXRecipes");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

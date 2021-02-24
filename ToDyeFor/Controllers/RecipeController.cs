@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ToDyeFor.Data;
 using ToDyeFor.Models;
@@ -14,12 +16,15 @@ namespace ToDyeFor.Controllers
         static private List<MXRecipe> MXRecipes = new List<MXRecipe>();
         private ApplicationDbContext context;
         private List<MXRecipe> mxRecipes;
+        
 
+        //private readonly UserManager<ApplicationUser> _userManager;
         public RecipeController(ApplicationDbContext dbContext)
         {
             context = dbContext;
             mxRecipes = context.MXRecipes.ToList();
         }
+
         //get: Recipe
         public IActionResult Index()
         {
@@ -51,8 +56,9 @@ namespace ToDyeFor.Controllers
                 Salt = calculateMXRecipeViewModel.Salt(),
                 SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
                 Water = calculateMXRecipeViewModel.Water(),
-                Dye = calculateMXRecipeViewModel.Dye()
-            };
+                Dye = calculateMXRecipeViewModel.Dye(),
+                ApplicationUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier)
+        };
             context.MXRecipes.Add(newMXRecipe);
             context.SaveChanges();
             return Redirect("/Recipe");

@@ -3,20 +3,46 @@
 *@
 @{
 }
+@model ToDyeFor.ViewModel.calculateMXRecipeViewModel
 
 
-<h1>@ViewBag.title</h1>
+<h1>Edit @Model.Name  (id=@Model.Id)</h1>
 
 <form method="post" action="/Recipe/Edit">
-    <label for="name">Recipe Name:</label>
-    <input name="Name" value="@ViewBag.editRecipe.Name" id="name" type="text" />
-    <br />
-    <label>
-        @*using label in a different way that works the same*@
-        Dye Color:
-        <input name="Description" value="@ViewBag.editRecipe.DyeColor" id="dyeColor" type="text" />
-    </label>
-    <br />
-    <input type="hidden" value="@ViewBag.editRecipe.Id" name="recipeId" />
+    <div class="form-group">
+        <label asp-for="Name">
+            Recipe Name
+            <input asp-for="Name">
+        </label>
+        <br />
+        <label asp-for="DyeColor">
+            Dye Color
+            <input asp-for="DyeColor">
+        </label>
+        <br />
+        <label asp-for="ShadeDepth">
+            Depth of Shade
+            <input asp-for="ShadeDepth">
+        </label>
+        <br />
+        <label asp-for="FabricWeight">
+            Weight of Fabric (grams)
+            <input asp-for="FabricWeight">
+        </label>
+        <br />
+        <label asp-for="Fabric">
+            Fabric/Fiber Type
+            <select asp-for="Fabric" asp-items="Model.FabricTypes"></select>
+        </label>
+        <br />
+        <label asp-for="Color">
+            Color
+            <select asp-for="Color" asp-items="Model.ColorTypes"></select>
+        </label>
+        <br />
+    </div>
+    <input type="hidden" asp-for="Id" />
     <input type="submit" value="Edit Recipe" />
 </form>
+
+

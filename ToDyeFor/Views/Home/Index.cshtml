@@ -5,6 +5,8 @@
 @using ToDyeFor.ViewModel;
 @model calculateMXRecipeViewModel;
 
+
+
 <form method="post" asp-controller="Home" asp-action="Index">
     <div class="text-center">
         Welcome to ToDyeFor! Calculate your recipe below or <a href="Home/About">click here</a> to learn more about us.
@@ -92,10 +94,10 @@
             <div id="results">
                 <ul>
                     @*<li id="named">Name:  </li>
-                    <li id="fabricType">Fabric/Fiber Type: </li>*@
+                        <li id="fabricType">Fabric/Fiber Type: </li>*@
                     <li id="fabricWeight">Weight of Goods: </li>
                     @*<li id="dyeColor">Dye Name: </li>
-                    <li id="colorType">Color: </li>*@
+                        <li id="colorType">Color: </li>*@
                     <li id="shadeDepth">Depth of Shade: </li>
                     <br />
                     <li id="dyeCalc">Dye Amount: </li>
@@ -126,39 +128,8 @@
                 </label>
                 <input type="submit" value="Save Recipe" />
             </div>
-</form>
-        
-@* TODO:: We need to now take the results that populate and send them as a form if ppl want to add to db.
-    the code below is the basic dye calulator made in the recipe view that we could use to add to db*@
-@*<form method="post" asp-controller="Recipe" asp-action="Calculator">
-        <div class="form-group">
-            <label asp-for="Name">
-                Recipe Name
-                <input asp-for="Name">
-            </label>
-            <label asp-for="DyeColor">
-                Dye Color
-                <input asp-for="DyeColor">
-            </label>
-            <label asp-for="ShadeDepth">
-                Depth of Shade
-                <input asp-for="ShadeDepth">
-            </label>
-            <label asp-for="FabricWeight">
-                Weight of Fabric (grams)
-                <input asp-for="FabricWeight">
-            </label>
         </div>
-        <input type="submit" value="Calculate Recipe" />
-    </form>*@
-@*<p>ask to save</p>
-    <p>redirect to create user/login</p>*@
-@*<iframe src="Home/ResultsIFrame" name="iframe" title="Results Page" style="height:300px;width:300px"></iframe>
-
-    <p><a href="Home/ResultsIFrame" target="iframe">link</a></p>*@
-        </div>
-
-<script src="site.js">
-</script>
-
     </div>
+</form>
+
+

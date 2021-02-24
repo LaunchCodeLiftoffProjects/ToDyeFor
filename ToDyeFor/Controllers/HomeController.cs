@@ -13,7 +13,12 @@ namespace ToDyeFor.Controllers
 {
     public class HomeController : Controller
     {
-        static private List<MXRecipe> MXRecipes = new List<MXRecipe>();
+        private ApplicationDbContext context;
+
+        public HomeController(ApplicationDbContext dbContext)
+        {
+            context = dbContext;
+        }
 
 
         [HttpGet]
@@ -41,23 +46,10 @@ namespace ToDyeFor.Controllers
                 Water = calculateMXRecipeViewModel.Water(),
                 Dye = calculateMXRecipeViewModel.Dye()
             };
-
-            return View("/Recipe/Index", newMXRecipe);
+            context.MXRecipes.Add(newMXRecipe);
+            context.SaveChanges();
+            return Redirect("/Recipe");
         }
-
-        //[HttpGet]
-        //public IActionResult Results(MXRecipe newMXRecipe)
-        //{
-        //    return View(newMXRecipe);
-        //}
-
-        //[HttpPost]
-        //public IActionResult Results()
-        //{
-        //    //context.MXRecipes.Add(newMXRecipe);
-        //    //context.SaveChanges();
-        //    return Redirect("/Recipe/Index");
-        //}
 
         public IActionResult About()
         {

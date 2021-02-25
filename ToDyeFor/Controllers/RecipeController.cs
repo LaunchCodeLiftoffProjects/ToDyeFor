@@ -73,6 +73,8 @@ namespace ToDyeFor.Controllers
         [Route("Recipe/Delete")]
         public IActionResult Delete()
         {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            userRecipes = mxRecipes.Where(x => x.ApplicationUserId == this.User.FindFirstValue(ClaimTypes.NameIdentifier)).ToList();
             return View(userRecipes);
         }
 

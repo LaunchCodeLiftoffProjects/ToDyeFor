@@ -71,5 +71,13 @@ namespace ToDyeFor.Controllers
             ViewBag.displayRecipes = displayRecipes;
             return View("Results");
         }
+
+        [HttpGet]
+        [Route("/Search/Detail/{recipeId}")]
+        public IActionResult Detail(int recipeId)
+        {
+            MXRecipe theRecipe = context.MXRecipes.Find(recipeId);
+            return View(theRecipe);
+        }
     }
 }

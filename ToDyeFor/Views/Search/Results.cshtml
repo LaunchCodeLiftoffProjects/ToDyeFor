@@ -1,0 +1,98 @@
+﻿<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<style>
+    /*body {
+        background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
+    }*/
+
+    @@media screen and (min-width: 40em) {
+        .card {
+            max-width: calc(50% - 1em);
+        }
+    }
+
+    @@media screen and (min-width: 60em) {
+        .card {
+            max-width: calc(25% - 1em);
+        }
+    }
+
+    /*.cards {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex: 1 0 500px;
+        box-sizing: border-box;
+        margin: 1rem .25em;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+        transition: 0.3s;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+        }*/
+
+    /*a {
+        color: black;
+        text-decoration: none;*/ /* no underline */
+    /*}
+
+        a:hover {
+            color: black;
+            text-decoration: none;
+        }*/
+
+    @@media screen and (max-width: 620px) {
+        .searchBox:hover > .searchInput {
+            width: 150px;
+            padding: 0 6px;
+        }
+    }
+</style>
+
+@if (ViewBag.displayRecipes.Count > 0)
+{
+    <div class="centered">
+
+        <section class="cards">
+            @foreach (MXRecipe r in ViewBag.displayRecipes)
+            {
+                string lightColor = "light" + r.Color;
+                string darkColor = "dark" + r.Color;
+                <div class="card" style="background-image: linear-gradient(to right bottom, white, white, @r.Color) ">
+                    <a class="nav-link text-dark" asp-controller="Search" asp-action="Detail" asp-route-id="@r.Id">
+                        @*<img class="card-img-top" src="https://1502fabrics.com/wp-content/uploads/2016/08/Revolution-Texture-Midnight.jpg" />*@
+                        <h5 class="card-title text-center">@r.Name</h5>
+                        <div class="card-body">
+                            <p>Dye Name: @r.DyeColor</p>
+                            <p>Fabric: @r.Fabric</p>
+                            <p>WoF: @r.FabricWeight g</p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </section>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <p>No results to display for <b><em>@ViewBag.searchInput</em></b>.</p>
+    </div>
+
+    <form action="/search/results" method="post">
+        <div class="searchBox">
+            <input class="searchInput" type="text" name="searchInput" placeholder="">
+            <button class="searchButton" href="#">
+                <i class="material-icons">
+                    search
+                </i>
+            </button>
+        </div>
+    </form>
+}
+

@@ -1,0 +1,151 @@
+﻿@using ToDyeFor.Models
+
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<form action="/search/results" method="post">
+    <div class="searchBox">
+        <input class="searchInput" type="text" name="searchInput" placeholder="">
+        <button class="searchButton" href="#">
+            <i class="material-icons">
+                search
+            </i>
+        </button>
+    </div>
+    <style>
+        /*body {
+            background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
+        }*/
+
+        /*.searchBox {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,50%);
+            background: #2f3640;
+            height: 60px;
+            border-radius: 60px;
+            padding: 10px;
+        }
+
+            .searchBox:hover > .searchInput {
+                width: 360px;
+                padding: 0 6px;
+            }
+
+            .searchBox:hover > .searchButton {
+                background: white;
+                color: #2f3640;
+            }
+
+        .searchButton {
+            color: white;
+            float: right;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #2f3640;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s;
+        }
+
+        .searchInput {
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            padding: 0;
+            color: white;
+            font-size: 16px;
+            transition: 0.4s;
+            line-height: 40px;
+            width: 0px;
+        }*/
+
+        @@media screen and (max-width: 620px) {
+            .searchBox:hover > .searchInput {
+                width: 150px;
+                padding: 0 6px;
+            }
+        }
+
+        
+    </style>
+</form>
+
+@*@if (ViewBag.displayRecipes != null)
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Recipe Name
+                </th>
+                <th>
+                    Dye Color
+                </th>
+                <th>
+                    Depth of Shade
+                </th>
+                <th>
+                    Fabric Weight
+                </th>
+                <th>
+                    Salt
+                </th>
+                <th>
+                    Soda Ash
+                </th>
+                <th>
+                    Water
+                </th>
+                <th>
+                    Dye
+                </th>
+            </tr>
+            @foreach (MXRecipe recipe in ViewBag.displayRecipes)
+            {
+                <tr>
+                    <td>@recipe.Id</td>
+                    <td>@recipe.Name</td>
+                    <td>@recipe.DyeColor</td>
+                    <td>@recipe.ShadeDepth</td>
+                    <td>@recipe.FabricWeight</td>
+                    <td>@recipe.Salt</td>
+                    <td>@recipe.SodaAsh</td>
+                    <td>@recipe.Water</td>
+                    <td>@recipe.Dye</td>
+                    <td style="background-color:@recipe.Color"></td>
+                    <td><a asp-controller="Recipe" asp-action="Edit" asp-route-id="@recipe.Id">Edit</a></td>
+                </tr>
+            }
+        </table>
+    }*@
+@*@if (ViewBag.displayRecipes != null)
+{
+    <div class="centered">
+
+        <section class="cards">
+            @foreach (MXRecipe r in ViewBag.displayRecipes)
+            {
+                <article class="card" style="background-image:linear-gradient()">
+                    <a href="">
+                        <img class="card-img-top" src="" />
+                        <h5 class="card-title">@r.Name</h5>
+                        <div class="card-body">
+                            <span>Last Updated: @r.UpdatedDate</span>
+                        </div>
+                    </a>
+                </article>
+            }
+        </section>
+    </div>
+}*@
+
+

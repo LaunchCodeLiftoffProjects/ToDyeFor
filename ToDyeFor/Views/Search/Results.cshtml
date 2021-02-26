@@ -61,12 +61,16 @@
         <section class="cards">
             @foreach (MXRecipe r in ViewBag.displayRecipes)
             {
-                <div class="card" style="background-image: linear-gradient(white, @r.Color)">
+                string lightColor = "light" + r.Color;
+                string darkColor = "dark" + r.Color;
+                <div class="card" style="background-image: linear-gradient(to right bottom, white, white, @r.Color) ">
                     <a class="nav-link text-dark" asp-controller="Search" asp-action="Detail" asp-route-id="@r.Id">
-                        @*<img class="card-img-top" src="" />*@
+                        @*<img class="card-img-top" src="https://1502fabrics.com/wp-content/uploads/2016/08/Revolution-Texture-Midnight.jpg" />*@
                         <h5 class="card-title text-center">@r.Name</h5>
                         <div class="card-body">
-                            <span>Last Updated: @r.UpdatedDate</span>
+                            <p>Dye Name: @r.DyeColor</p>
+                            <p>Fabric: @r.Fabric</p>
+                            <p>WoF: @r.FabricWeight g</p>
                         </div>
                     </a>
                 </div>

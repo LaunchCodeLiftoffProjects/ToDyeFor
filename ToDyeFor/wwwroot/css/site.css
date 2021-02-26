@@ -5,7 +5,6 @@ a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
-    background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
 }
 
 /* Provide sufficient contrast against white background */
@@ -130,6 +129,7 @@ body {
 .card {
     flex: 1 0 500px;
     box-sizing: border-box;
+    border: hidden;
     margin: 1rem .25em;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
     transition: 0.3s;

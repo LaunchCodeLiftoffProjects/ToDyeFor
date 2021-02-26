@@ -69,6 +69,7 @@ namespace ToDyeFor.Controllers
                 //    .Contains(searchTerm)).ToList());
             }
             ViewBag.displayRecipes = displayRecipes;
+            ViewBag.searchInput = searchInput;
             return View("Results");
         }
 

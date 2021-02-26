@@ -11,17 +11,17 @@
 @model ToDyeFor.Models.MXRecipe
 @*use this to reference this page <a asp-controller="Search" asp-action="Detail" asp-route-id="@recipe.Id">Detail</a>*@
 
-<h1>Detail's of  @Model.Name  (id=@Model.Id)</h1>
+<h1>@Model.Name  @*(id=@Model.Id)*@</h1>
 
-<table class="table">
-    <tr>
-        <th>ID</th>
-        <td>@Model.Id</td>
-    </tr>
-    <tr>
-        <th>Recipe Name</th>
-        <td>@Model.Name</td>
-    </tr>
+<table class="table" style="background-image: linear-gradient(white, @Model.Color)">
+    @*<tr>
+            <th>ID</th>
+            <td>@Model.Id</td>
+        </tr>*@
+    @*<tr>
+            <th>Recipe Name</th>
+            <td>@Model.Name</td>
+        </tr>*@
     <tr>
         <th>Dye Name</th>
         <td>@Model.DyeColor</td>

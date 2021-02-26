@@ -129,6 +129,34 @@ body {
     }
 }
 
+#confirm {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    height: 60px;
+    background-color: white;
+    padding: 20px;
+    z-index: 3;
+}
+
+.hiddenConfirmBox {
+    display: none;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
 /* card styles*/
 .cards {
     display: flex;

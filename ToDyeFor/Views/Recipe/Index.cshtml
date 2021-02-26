@@ -62,13 +62,13 @@ else
         <td>@recipe.Name</td>
         <td>@recipe.DyeColor</td>
         <td>@recipe.Color</td>
-        <td>@recipe.ShadeDepth</td>
-        <td>@recipe.FabricWeight</td>
+        <td>@recipe.ShadeDepth %</td>
+        <td>@recipe.FabricWeight grams</td>
         <td>@recipe.Fabric</td>
-        <td>@recipe.Salt</td>
-        <td>@recipe.SodaAsh</td>
-        <td>@recipe.Water</td>
-        <td>@recipe.Dye</td>
+        <td>@recipe.Salt grams</td>
+        <td>@recipe.SodaAsh grams</td>
+        <td>@recipe.Water mL</td>
+        <td>@recipe.Dye grams</td>
         <td><a asp-controller="Recipe" asp-action="Edit" asp-route-id="@recipe.Id">Edit</a></td>
     </tr>
         }

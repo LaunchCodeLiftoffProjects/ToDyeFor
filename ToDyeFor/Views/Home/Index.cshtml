@@ -2,7 +2,96 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@using ToDyeFor.ViewModel;
+@model calculateMXRecipeViewModel;
+
+
+
+<form method="post" asp-controller="Home" asp-action="Index">
+    <div class="text-center">
+        Welcome to ToDyeFor! Calculate your recipe below or <a href="Home/About">click here</a> to learn more about us.
+        <div id="calculator">
+
+            @*step 1*@
+            <div class="tab">
+                <p>
+                    <label asp-for="FabricWeight">
+                        Weight of Fabric (grams)
+                        <input asp-for="FabricWeight" id="quantity">
+                    </label>
+
+                </p>
+            </div>
+
+           
+            @*step 2*@
+            <div class="tab">
+                <p>
+                    <label asp-for="ShadeDepth">
+                        Depth of Shade:
+                    </label>
+
+                    <div class="slidecontainer">
+                        <input asp-for="ShadeDepth" type="range" min="0" max="8" step="0.1" value="5" class="slider" id="shade">
+                        <br>Value: <span id="depth"></span> %
+
+                    </div>
+                </p>
+            </div>
+         
+
+            <div style="overflow:auto;">
+                <div style="float:right;">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
+            </div>
+
+            <!-- Circles which indicate the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
+                <span class="step"></span>
+            </div>
+
+        </div>
+
+        <div id="calculateResults">
+            <h2 id="recipeStatus">Submit form to calculate results</h2>
+            <div id="results" style="visibility: hidden">
+                <ul>
+                    <li id="fabricWeight">Weight of Goods: </li>
+                    <li id="shadeDepth">Depth of Shade: </li>
+                    <br />
+                    <li id="dyeCalc">Dye Amount: </li>
+                    <li id="saltCalc">Salt Amount: </li>
+                    <li id="sodaAshCalc">Soda Ash Amount:</li>
+                    <li id="waterCalc">Water Amount: </li>
+                </ul>
+            </div>
+
+            <div id="save" style="visibility: hidden">
+                <h2>Would you like to save this recipe to your recipe stash?</h2>
+
+                <label asp-for="Name">
+                    Name
+                    <input asp-for="Name" id="recipeName">
+                </label>
+                <label asp-for="Color">
+                    Color
+                    <select asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
+                </label>
+                <label asp-for="DyeColor">
+                    Dye Name
+                    <input asp-for="DyeColor" id="dye">
+                </label>
+                <label asp-for="Fabric">
+                    Fabric/Fiber Type
+                    <select asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
+                </label>
+                <input type="submit" value="Save Recipe" />
+            </div>
+        </div>
+    </div>
+</form>
+
+

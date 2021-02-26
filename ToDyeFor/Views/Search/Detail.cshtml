@@ -1,27 +1,15 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using System.Security.Claims;
 @model ToDyeFor.Models.MXRecipe
 @*use this to reference this page <a asp-controller="Search" asp-action="Detail" asp-route-id="@recipe.Id">Detail</a>*@
 
 <h1>@Model.Name  @*(id=@Model.Id)*@</h1>
 
+@if (Model.ApplicationUserId == User.FindFirstValue(ClaimTypes.NameIdentifier) && Model.ApplicationUserId != null)
+{
+    <a asp-controller="Recipe" asp-action="Edit" asp-route-id="@Model.Id">Edit Recipe</a>
+}
+
 <table class="table" style="background-image: linear-gradient(white, @Model.Color)">
-    @*<tr>
-            <th>ID</th>
-            <td>@Model.Id</td>
-        </tr>*@
-    @*<tr>
-            <th>Recipe Name</th>
-            <td>@Model.Name</td>
-        </tr>*@
     <tr>
         <th>Dye Name</th>
         <td>@Model.DyeColor</td>

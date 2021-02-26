@@ -7,7 +7,7 @@
         background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
     }*/
 
-    @@media screen and (min-width: 40em) {
+    /*@@media screen and (min-width: 40em) {
         .card {
             max-width: calc(50% - 1em);
         }
@@ -17,7 +17,7 @@
         .card {
             max-width: calc(25% - 1em);
         }
-    }
+    }*/
 
     /*.cards {
         display: flex;
@@ -46,12 +46,12 @@
             text-decoration: none;
         }*/
 
-    @@media screen and (max-width: 620px) {
+    /*@@media screen and (max-width: 620px) {
         .searchBox:hover > .searchInput {
             width: 150px;
             padding: 0 6px;
         }
-    }
+    }*/
 </style>
 
 @if (ViewBag.displayRecipes.Count > 0)
@@ -61,8 +61,6 @@
         <section class="cards">
             @foreach (MXRecipe r in ViewBag.displayRecipes)
             {
-                string lightColor = "light" + r.Color;
-                string darkColor = "dark" + r.Color;
                 <div class="card" style="background-image: linear-gradient(to right bottom, white, white, @r.Color) ">
                     <a class="nav-link text-dark" asp-controller="Search" asp-action="Detail" asp-route-id="@r.Id">
                         @*<img class="card-img-top" src="https://1502fabrics.com/wp-content/uploads/2016/08/Revolution-Texture-Midnight.jpg" />*@

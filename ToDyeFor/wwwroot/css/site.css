@@ -74,6 +74,7 @@ body {
     line-height: 60px; /* Vertically center the text there */
 }
 
+/* search view styles*/
 .searchBox {
     position: absolute;
     top: 50%;
@@ -121,6 +122,14 @@ body {
     width: 0px;
 }
 
+@media screen and (max-width: 620px) {
+    .searchBox:hover > .searchInput {
+        width: 150px;
+        padding: 0 6px;
+    }
+}
+
+/* card styles*/
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -131,13 +140,27 @@ body {
     box-sizing: border-box;
     border: hidden;
     margin: 1rem .25em;
+    /*card shadow animation*/
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
     transition: 0.3s;
 }
 
     .card:hover {
+        /*card shadow animation*/
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
     }
+
+@media screen and (min-width: 40em) {
+    .card {
+        max-width: calc(50% - 1em);
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .card {
+        max-width: calc(25% - 1em);
+    }
+}
 
 /*calculator style*/
 

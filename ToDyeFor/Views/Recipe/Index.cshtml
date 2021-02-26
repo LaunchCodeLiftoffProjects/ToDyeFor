@@ -19,58 +19,23 @@
 }
 else
 {
-    <table class="table">
-        <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                Recipe Name
-            </th>
-            <th>
-                Dye Color
-            </th>
-            <th>
-                Color
-            </th>
-            <th>
-                Depth of Shade
-            </th>
-            <th>
-                Fabric Weight
-            </th>
-            <th>
-                Fabric/Fiber Type
-            </th>
-            <th>
-                Salt
-            </th>
-            <th>
-                Soda Ash
-            </th>
-            <th>
-                Water
-            </th>
-            <th>
-                Dye
-            </th>
-        </tr>
-        @foreach (var recipe in Model)
+<div class="centered">
+
+    <section class="cards">
+        @foreach (MXRecipe r in Model)
         {
-    <tr>
-        <td>@recipe.Id</td>
-        <td>@recipe.Name</td>
-        <td>@recipe.DyeColor</td>
-        <td>@recipe.Color</td>
-        <td>@recipe.ShadeDepth %</td>
-        <td>@recipe.FabricWeight grams</td>
-        <td>@recipe.Fabric</td>
-        <td>@recipe.Salt grams</td>
-        <td>@recipe.SodaAsh grams</td>
-        <td>@recipe.Water mL</td>
-        <td>@recipe.Dye grams</td>
-        <td><a asp-controller="Recipe" asp-action="Edit" asp-route-id="@recipe.Id">Edit</a></td>
-    </tr>
+            <div class="card" style="background-image: linear-gradient(to right bottom, white, white, @r.Color) ">
+                <a class="nav-link text-dark" asp-controller="Search" asp-action="Detail" asp-route-id="@r.Id">
+                    @*<img class="card-img-top" src="https://1502fabrics.com/wp-content/uploads/2016/08/Revolution-Texture-Midnight.jpg" />*@
+                    <h5 class="card-title text-center">@r.Name</h5>
+                    <div class="card-body">
+                        <p>Dye Name: @r.DyeColor</p>
+                        <p>Fabric: @r.Fabric</p>
+                        <p>WoF: @r.FabricWeight g</p>
+                    </div>
+                </a>
+            </div>
         }
-    </table>
+    </section>
+</div>
 }

@@ -108,16 +108,18 @@ slider2.oninput = function () {
 
 // what happens when they click the submit button
 function submitForm() {
+    //hides the tabs
+    document.getElementById("calculator").style.display = "none";
     //this repopulates the text below the card tabs with the inputs and calculated results and makes rest of form visible.
     save.style.visibility = 'visible'
     results.style.visibility = 'visible'
     recipeStatus.innerHTML = `Your recipe has been calculated!`;
-    fabricWeight.innerHTML = `Weight of Goods: ${quantity.value} grams`;
-    shadeDepth.innerHTML = `Depth of Shade: ${shade.value}%`;
-    dyeCalc.innerHTML = `Dye Amount: ${((shade.value)/100) * (quantity.value)} grams`;
-    saltCalc.innerHTML = `Salt Amount: ${(quantity.value) * .5 } grams`;
-    sodaAshCalc.innerHTML = `Soda Ash Amount: ${(quantity.value) * .09} grams`;
-    waterCalc.innerHTML = `Water Amount: ${(quantity.value) * 20} mL`;
+    fabricWeight.innerHTML = `${quantity.value} grams`;
+    shadeDepth.innerHTML = `${shade.value}%`;
+    dyeCalc.innerHTML = `${((shade.value)/100) * (quantity.value)} grams`;
+    saltCalc.innerHTML = `${(quantity.value) * .5 } grams`;
+    sodaAshCalc.innerHTML = ` ${(quantity.value) * .09} grams`;
+    waterCalc.innerHTML = `${(quantity.value) * 20} mL`;
 }
 
 //TODO:  We need to find a way to model bind so that the inputs from the select lists will display the proper value. 

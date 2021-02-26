@@ -2,28 +2,61 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using ToDyeFor.Data;
 using ToDyeFor.Models;
+using ToDyeFor.ViewModel;
 
 namespace ToDyeFor.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private ApplicationDbContext context;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ApplicationDbContext dbContext)
         {
-            _logger = logger;
+            context = dbContext;
         }
 
+        [HttpGet]
+        //js calculator
         public IActionResult Index()
         {
-            return View();
+            calculateMXRecipeViewModel calculateMXRecipeViewModel = new calculateMXRecipeViewModel();
+            return View(calculateMXRecipeViewModel);
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        [Authorize]
+        //[Route("Home/Results")]
+        public IActionResult Index(calculateMXRecipeViewModel calculateMXRecipeViewModel)
+        {
+
+            MXRecipe newMXRecipe = new MXRecipe
+            {
+                Name = calculateMXRecipeViewModel.Name,
+                DyeColor = calculateMXRecipeViewModel.DyeColor,
+                ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
+                FabricWeight = calculateMXRecipeViewModel.FabricWeight,
+                Color = calculateMXRecipeViewModel.Color, 
+                Fabric = calculateMXRecipeViewModel.Fabric,
+                Salt = calculateMXRecipeViewModel.Salt(),
+                SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
+                Water = calculateMXRecipeViewModel.Water(),
+                Dye = calculateMXRecipeViewModel.Dye(),
+                ApplicationUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier)
+            };
+            context.MXRecipes.Add(newMXRecipe);
+            context.SaveChanges();
+            return Redirect("/Recipe");
+        }
+
+        public IActionResult About()
         {
             return View();
         }

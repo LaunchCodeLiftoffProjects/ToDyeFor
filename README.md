@@ -1,10 +1,4 @@
 # Project Outline
-For this assignment, you will submit a high-level outline of your project. This can, and likely will, change over time. In particular, your mentor will provide direction and feedback to help sharpen your ideas. So don't worry if you feel unsure about some aspects of the outline or if you have to change some things later.
-
-## Assignment Description
-[Project Outline Assignment](https://education.launchcode.org/liftoff/modules/assignments/project-outline)
-
-## Submission Instructions
 
 ### Overview
 
@@ -23,12 +17,12 @@ ToDyeFor is a web application that allows surface designers, textile artist and 
 * HTML & CSS
 * JavaScript
 * C#
-* ASP.NET
-* MongoDB
+* ASP.NET Core MVC
+* MS SQL with Azure Cloud DB
 
 ### What I'll Have to Learn
 
-We will have to learn how to have a user upload an image and have it stored in a database that can be searched.  To do this we will probably have to use MongoDB so we will need to learn how to work with a new database.  To create the Dye Calculator we are considering creating it with JavaScript we will need to brush up on JavaScript skills to make it interactive. We are considering using JS as our front end so we will need to learn how to incorperate JS into the front end and have C# work with MongoDB for the back end. We will also be learning different agile approaches and the git workflow.  We will also need to learn more indepth of how to store hashed passwords for users. 
+We will have to learn how to have a user upload an image and have it stored in a database that can be searched.  To do this we will probably have to use Azure sercices so we will need to learn how to work with a new database.  To create the Dye Calculator we are considering creating it with JavaScript we will need to brush up on JavaScript skills to make it interactive. We are considering using JS as our front end so we will need to learn how to incorperate JS into the front end and have C# work with Azure SQL for the back end. We will also be learning different agile approaches and the git workflow.  We will also need to learn more indepth of how to store hashed passwords for users. 
 
 
 ### Project Tracker

@@ -10,15 +10,61 @@
 <h1>Delete Recipe</h1>
 
 <form method="post">
-    @foreach (var recipe in Model)
-    {
         <div class="form-group">
-            <label>
-                <span>@recipe.Name</span>
-                <input type="checkbox" name="recipeIds" value="@recipe.Id" class="form-control">
-            </label>
+                <table class="table">
+                    <tr>
+                        <th>
+                            Delete
+                        </th>
+                        <th>
+                            Recipe Name
+                        </th>
+                        <th>
+                            Dye Color
+                        </th>
+                        <th>
+                            Color
+                        </th>
+                        <th>
+                            Depth of Shade
+                        </th>
+                        <th>
+                            Fabric Weight
+                        </th>
+                        <th>
+                            Fabric/Fiber Type
+                        </th>
+                        <th>
+                            Salt
+                        </th>
+                        <th>
+                            Soda Ash
+                        </th>
+                        <th>
+                            Water
+                        </th>
+                        <th>
+                            Dye
+                        </th>
+                    </tr>
+                    @foreach (var recipe in Model)
+                    {
+                        <tr>
+                            <td><input type="checkbox" name="recipeIds" value="@recipe.Id" class="form-control">Delete</td>
+                            <td>@recipe.Name</td>
+                            <td>@recipe.DyeColor</td>
+                            <td>@recipe.Color</td>
+                            <td>@recipe.ShadeDepth %</td>
+                            <td>@recipe.FabricWeight grams</td>
+                            <td>@recipe.Fabric</td>
+                            <td>@recipe.Salt grams</td>
+                            <td>@recipe.SodaAsh grams</td>
+                            <td>@recipe.Water mL</td>
+                            <td>@recipe.Dye grams</td>
+                        </tr>
+                    }
+                </table>
         </div>
-    }
 
     <input type="submit" value="Delete Selected Recipes" class="btn btn-danger">
 

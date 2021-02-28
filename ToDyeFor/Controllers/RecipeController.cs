@@ -92,6 +92,28 @@ namespace ToDyeFor.Controllers
             return Redirect("/Recipe");
         }
 
+        //[HttpGet]
+        //[Route("Recipe/Detail/{recipeId}")]
+        //public IActionResult DeleteDetail(int recipeId)
+        //{
+        //    MXRecipe theRecipe = context.MXRecipes.Find(recipeId);
+        //    context.MXRecipes.Remove(theRecipe);
+        //    context.SaveChanges();
+
+        //    return View(theRecipe);
+        //}
+
+        [HttpPost]
+        [Route("Search/Detail/{recipeId}")]
+        public IActionResult DeleteDetail(int recipeId)
+        {
+            MXRecipe theRecipe = context.MXRecipes.Find(recipeId);
+            context.MXRecipes.Remove(theRecipe);
+            context.SaveChanges();
+
+            return Redirect("/Recipe");
+        }
+
         //get: Recipe/edit/eventId
         [HttpGet]
         [Route("/Recipe/Edit/{recipeId}")]

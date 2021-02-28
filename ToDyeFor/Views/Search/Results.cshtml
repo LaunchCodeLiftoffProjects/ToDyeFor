@@ -2,6 +2,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
+
 @if (ViewBag.displayRecipes.Count > 0)
 {
     <div class="centered">
@@ -9,7 +10,7 @@
         <section class="cards">
             @foreach (MXRecipe r in ViewBag.displayRecipes)
             {
-                <div class="card" style="background-image: linear-gradient(to right bottom, white, white, @r.Color) ">
+                <div class="card" id="resultCard" style="background-image: linear-gradient(to right bottom, white, white, @r.Color) ">
                     <a class="nav-link text-dark" asp-controller="Search" asp-action="Detail" asp-route-id="@r.Id">
                         @*<img class="card-img-top" src="https://1502fabrics.com/wp-content/uploads/2016/08/Revolution-Texture-Midnight.jpg" />*@
                         <h5 class="card-title text-center">@r.Name</h5>

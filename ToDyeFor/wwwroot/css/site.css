@@ -136,7 +136,7 @@ body {
     transform: translate(-50%,50%);
     height: 60px;
     background-color: white;
-    padding: 20px;
+    /*padding: 20px;*/
     z-index: 3;
 }
 

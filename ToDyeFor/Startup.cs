@@ -28,9 +28,9 @@ namespace ToDyeFor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var sqlConnection = Configuration["ToDyeForSQLSecret"];
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(sqlConnection));
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("ToDyeForConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>()

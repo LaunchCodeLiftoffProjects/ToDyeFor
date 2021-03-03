@@ -9,7 +9,7 @@
 
 <form method="post" asp-controller="Home" asp-action="Index">
     <div class="text-center">
-        Welcome to ToDyeFor! Calculate your MX Reactive Dye recipe below or <a href="Home/About">click here</a> to learn more about us.
+        Welcome to ToDyeFor! Calculate your recipe below or <a href="Home/About">click here</a> to learn more about us.
         <div id="calculator" class="card" style="border-radius: 6px; ">
 
             @*step 1*@
@@ -107,7 +107,6 @@
                             Fabric/Fiber Type <select asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
                         </label>
                         <input type="submit" value="Save Recipe" />
-                        <p style="color:red">WARNING:  You must be signed in to save your recipe. </p>
                     </div>
                 </div>
         </div>

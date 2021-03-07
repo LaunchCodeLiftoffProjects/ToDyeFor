@@ -62,6 +62,7 @@ html {
 
 body {
     /* Margin bottom by footer height */
+    font-family: 'Poppins', sans-serif;
     margin-bottom: 60px;
     background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
 }
@@ -129,7 +130,7 @@ body {
     }
 }
 
-#confirm {
+.confirmDelete {
     position: absolute;
     top: 35%;
     left: 50%;
@@ -144,7 +145,7 @@ body {
     display: none;
 }
 
-#overlay {
+.detailOverlay {
     position: fixed;
     display: none;
     width: 100%;

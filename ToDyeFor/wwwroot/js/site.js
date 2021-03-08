@@ -125,36 +125,36 @@ function submitForm() {
 //TODO:  We need to find a way to model bind so that the inputs from the select lists will display the proper value. DONE?
 
 // search detail js
-let deleteButton = document.getElementById("deleteButton");
-let confirmation = document.getElementById("confirmDelete");
-let detailOverlay = document.getElementById("detailOverlay")
+//let deleteButton = document.getElementById("deleteButton");
+//let confirmation = document.getElementById("confirmDelete");
+//let detailOverlay = document.getElementById("detailOverlay")
 
-deleteButton.addEventListener("click", function () {
-    confirmation.style.visibility = "visible";
-});
+//deleteButton.addEventListener("click", function () {
+//    confirmation.style.visibility = "visible";
+//});
 
-function on() {
-    detailOverlay.style.display = "block";
+//function on() {
+//    detailOverlay.style.display = "block";
 
-}
+//}
 
-function off() {
-    detailOverlay.style.display = "none";
-    confirmation.style.visibility = "hidden";
-}
+//function off() {
+//    detailOverlay.style.display = "none";
+//    confirmation.style.visibility = "hidden";
+//}
 
 //About js
-function copyInfoEmail() {
-    /* Get the text field */
-    let copyText = document.getElementById("infoEmail");
+//function copyInfoEmail() {
+//    /* Get the text field */
+//    let copyText = document.getElementById("infoEmail");
 
-    /* Select the text field */
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+//    /* Select the text field */
+//    copyText.select();
+//    copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
-    /* Copy the text inside the text field */
-    document.execCommand("copy");
+//    /* Copy the text inside the text field */
+//    document.execCommand("copy");
 
-    /* Alert the copied text */
-    alert("Copied the text: " + copyText.value);
-}
+//    /* Alert the copied text */
+//    alert("Copied the text: " + copyText.value);
+//}

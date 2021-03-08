@@ -137,7 +137,7 @@ body {
     transform: translate(-50%,50%);
     height: 60px;
     background-color: white;
-    /*padding: 20px;*/
+    padding: 1em 1em 6em 1em;
     z-index: 3;
 }
 
@@ -159,9 +159,6 @@ body {
     cursor: pointer;
 }
 
-.confirmDelete {
-    padding: 1em 1em 6em 1em;
-}
 /* card styles*/
 .cards {
     display: flex;
@@ -247,7 +244,7 @@ input {
         background-color: #4CAF50;
     }
 
-    /* About page styles*/
-    .aboutBody {
-        line-height: 30px;
-    }
+/* About page styles*/
+.aboutBody {
+    line-height: 30px;
+}

@@ -5,47 +5,47 @@
 <h1>@Model.Name  @*(id=@Model.Id)*@</h1>
 
 
-
-<table class="table" style="background-image: linear-gradient(white, @Model.Color)">
-    <tr>
-        <th>Dye Name</th>
-        <td>@Model.DyeColor</td>
-    </tr>
-    <tr>
-        <th>Color</th>
-        <td>@Model.Color</td>
-    </tr>
-    <tr>
-        <th>Depth of Shade</th>
-        <td>@Model.ShadeDepth %</td>
-    </tr>
-    <tr>
-        <th>Fabric Weight</th>
-        <td>@Model.FabricWeight grams</td>
-    </tr>
-    <tr>
-        <th>Fabric/Fiber Type</th>
-        <td>@Model.Fabric</td>
-    </tr>
-    <tr>
-        <th>Salt</th>
-        <td>@Model.Salt grams</td>
-    </tr>
-    <tr>
-        <th>Soda Ash</th>
-        <td>@Model.SodaAsh grams</td>
-    </tr>
-    <tr>
-        <th>Water</th>
-        <td>@Model.Water mL</td>
-    </tr>
-    <tr>
-        <th>Dye</th>
-        <td>@Model.Dye grams</td>
-    </tr>
-</table>
-
-
+<div id="recipeDetail">
+    <table class="table" style="background-image: linear-gradient(white, @Model.Color)">
+        <tr>
+            <th>Dye Name</th>
+            <td>@Model.DyeColor</td>
+        </tr>
+        <tr>
+            <th>Color</th>
+            <td>@Model.Color</td>
+        </tr>
+        <tr>
+            <th>Depth of Shade</th>
+            <td>@Model.ShadeDepth %</td>
+        </tr>
+        <tr>
+            <th>Fabric Weight</th>
+            <td>@Model.FabricWeight grams</td>
+        </tr>
+        <tr>
+            <th>Fabric/Fiber Type</th>
+            <td>@Model.Fabric</td>
+        </tr>
+        <tr>
+            <th>Salt</th>
+            <td>@Model.Salt grams</td>
+        </tr>
+        <tr>
+            <th>Soda Ash</th>
+            <td>@Model.SodaAsh grams</td>
+        </tr>
+        <tr>
+            <th>Water</th>
+            <td>@Model.Water mL</td>
+        </tr>
+        <tr>
+            <th>Dye</th>
+            <td>@Model.Dye grams</td>
+        </tr>
+    </table>
+    <button class="btn btn-secondary" onclick="printDiv('recipeDetail')">Print Recipe</button>
+</div>
 @if (Model.ApplicationUserId == User.FindFirstValue(ClaimTypes.NameIdentifier) && Model.ApplicationUserId != null)
 {
     <table>

@@ -1,10 +1,7 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-// Write your JavaScript code.
 
-//
-//the following code creates the "tabs" of our calculator form & is modifed from W3Schools
 // displays current value of shade depth slider
 var slider2 = document.getElementById("shade");
 var output2 = document.getElementById("depth");
@@ -13,7 +10,7 @@ slider2.oninput = function () {
     output2.innerHTML = `${this.value}`;
 }
 
-
+//the following code creates the "tabs" of our calculator form & is modifed from W3Schools
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 
@@ -122,4 +119,11 @@ function submitForm() {
     waterCalc.innerHTML = `${(quantity.value) * 20} mL`;
 }
 
-//TODO:  We need to find a way to model bind so that the inputs from the select lists will display the proper value. 
+//this allows recipes to be printed
+function printDiv(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}

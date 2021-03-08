@@ -54,17 +54,17 @@
                 <a asp-controller="Recipe" asp-action="Edit" asp-route-id="@Model.Id">Edit Recipe</a>
             </td>
             <td>
-                <input onclick="on()" class="btn btn-danger" type="button" id="delete" name="recipeId" value="Delete this Recipe" />
+                <input onclick="on()" class="btn btn-danger" type="button" id="deleteButton" name="recipeId" value="Delete this Recipe" />
             </td>
         </tr>
     </table>
-    <div class="confirmDelete" id="confirmDelete" style="visibility:hidden; padding: 1em;">
-        <form method="post">
+    <div class="confirmDelete" id="confirmDelete" style="visibility:hidden">
+        <form method="post" class="form-group">
 
-            <p>Are you sure you want to delete this recipe? Click anywhere to cancel.</p>
+            <p class="form-control-plaintext">Are you sure you want to delete this recipe? Click anywhere to cancel.</p>
 
-            <input class="hiddenConfirmBox" type="text" name="recipeIds" value="@Model.Id">
-            <input type="submit" value="Confirm" class="btn btn-danger" />
+            <input class="hiddenConfirmBox form-control" type="text" name="recipeIds" value="@Model.Id">
+            <input type="submit" value="Confirm" class="btn btn-danger form-control" />
         </form>
     </div>
 
@@ -73,7 +73,7 @@
     <div class="detailOverlay" id="detailOverlay" onclick="off()"></div>
 
     <script>
-        let deleteButton = document.getElementById("delete");
+        let deleteButton = document.getElementById("deleteButton");
         let confirmation = document.getElementById("confirmDelete");
         let detailOverlay = document.getElementById("detailOverlay")
 

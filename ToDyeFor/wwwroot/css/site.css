@@ -158,6 +158,10 @@ body {
     z-index: 2;
     cursor: pointer;
 }
+
+.confirmDelete {
+    padding: 1em 1em 6em 1em;
+}
 /* card styles*/
 .cards {
     display: flex;
@@ -241,4 +245,9 @@ input {
     /* Mark the steps that are finished and valid: */
     .step.finish {
         background-color: #4CAF50;
+    }
+
+    /* About page styles*/
+    .aboutBody {
+        line-height: 30px;
     }

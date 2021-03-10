@@ -58,39 +58,42 @@
         <div>
             <h2 id="recipeStatus">Submit form to calculate results</h2>
             <div id="calculateResults" class="cards">
-                <div id="results" style="visibility: hidden" class="card">
-                    <table class="table">
-                        <tr>
-                            <th>Depth of Shade</th>
-                            <td id="shadeDepth"></td>
-                        </tr>
-                        <tr>
-                            <th>Weight of Fabric</th>
-                            <td id="fabricWeight"></td>
-                        </tr>
-                        <tr>
-                            <th></th>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <th>Salt Amount</th>
-                            <td id="saltCalc"></td>
-                        </tr>
-                        <tr>
-                            <th>Soda Ash Amount</th>
-                            <td id="sodaAshCalc"></td>
-                        </tr>
-                        <tr>
-                            <th>Water Amount</th>
-                            <td id="waterCalc"></td>
-                        </tr>
-                        <tr>
-                            <th>Dye Amount</th>
-                            <td id="dyeCalc"></td>
-                        </tr>
-                    </table>
-                    <button class="btn btn-secondary" onclick="printDiv('results')">Print Recipe</button>
+                <div  id="results" style="visibility: hidden" class="card">
+                    <div id="dyeRecipe">
+                        <table class="table">
+                            <tr>
+                                <th>Depth of Shade</th>
+                                <td id="shadeDepth"></td>
+                            </tr>
+                            <tr>
+                                <th>Weight of Fabric</th>
+                                <td id="fabricWeight"></td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>Salt Amount</th>
+                                <td id="saltCalc"></td>
+                            </tr>
+                            <tr>
+                                <th>Soda Ash Amount</th>
+                                <td id="sodaAshCalc"></td>
+                            </tr>
+                            <tr>
+                                <th>Water Amount</th>
+                                <td id="waterCalc"></td>
+                            </tr>
+                            <tr>
+                                <th>Dye Amount</th>
+                                <td id="dyeCalc"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="btn btn-secondary" onclick="printDiv('dyeRecipe')">Print Recipe</button>
                 </div>
+
 
                 <div id="save" style="visibility: hidden; padding: 20px;" class="card">
                     <h4>Would you like to save this recipe?</h4>

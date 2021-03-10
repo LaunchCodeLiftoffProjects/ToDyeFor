@@ -44,8 +44,9 @@
             <td>@Model.Dye grams</td>
         </tr>
     </table>
-    <button class="btn btn-secondary" onclick="printDiv('recipeDetail')">Print Recipe</button>
+
 </div>
+<button class="btn btn-secondary" onclick="printDiv('recipeDetail')">Print Recipe</button>
 @if (Model.ApplicationUserId == User.FindFirstValue(ClaimTypes.NameIdentifier) && Model.ApplicationUserId != null)
 {
     <table>

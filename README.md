@@ -1,6 +1,6 @@
 # Project Outline
 
-url: https://todyefor.azurewebsites.net/
+Project url: https://todyefor.azurewebsites.net/
 
 ### Overview
 

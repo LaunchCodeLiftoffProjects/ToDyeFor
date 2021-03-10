@@ -1,5 +1,7 @@
 # Project Outline
 
+url: https://todyefor.azurewebsites.net/
+
 ### Overview
 
 ToDyeFor is a web application that allows surface designers, textile artist and DIY creators to calculate, search, create and keep track of dye recipes.  The idea came from working  for 5 years in a small surface design studio where all the recipes and fabric swatches were recorded and calculated by hand and stored in binders and bins. Needless to say it could be unorganized at times and lead to lost recipies, incorrect calculations and wondering where this beautiful scrap of fabric came from and how to replicate it.  ToDyeFor aims to remove the headache of keeping track of dye recipes, incorrect calculations, and searching for a desired recipe.

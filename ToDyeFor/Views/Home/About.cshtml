@@ -17,9 +17,21 @@
     <p>Contact us at <strong>info.ToDyeFor@gmail.com</strong> <button class="clipboardButton" id="clipboardButton"><i class="material-icons">content_copy</i></button> with any inquiries or feedback.</p>
 </div>
 
-<input type="text" value="info.ToDyeFor@gmail.com" style="display:none" id="infoEmail" />
+<input type="text" value="info.ToDyeFor@gmail.com" style="display:none" id="infoEmail"/>
 
+<script>
+        let emailButton = document.getElementById("clipboardButton");
 
+        emailButton.addEventListener("click", function () {
+
+            let copyText = document.getElementById("infoEmail");
+            copyText.focus();
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert(`Copied "${copyText.value}" to clipboard.`);
+        })
+</script>
 
 
 <div class="centered">

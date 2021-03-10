@@ -14,12 +14,12 @@
         aims to remove the headache of keeping track of dye recipes, incorrect calculations, and searching for a
         desired recipe.
     </p>
-    <p>Contact us at <strong id="infoEmail">info.ToDyeFor@gmail.com</strong> <button class="clipboardButton" id="clipboardButton"><i class="material-icons">content_copy</i></button> with any inquiries or feedback.</p>
+    <p>Contact us at <strong>info.ToDyeFor@gmail.com</strong> <button class="clipboardButton" id="clipboardButton"><i class="material-icons">content_copy</i></button> with any inquiries or feedback.</p>
 </div>
 
-<script>
+<input type="text" value="info.ToDyeFor@gmail.com" style="display:none" id="infoEmail"/>
 
-    window.addEventListener("load", function () {
+<script>
         let emailButton = document.getElementById("clipboardButton");
 
         emailButton.addEventListener("click", function () {
@@ -29,7 +29,6 @@
             copyText.select();
             copyText.setSelectionRange(0, 99999);
             document.execCommand("copy");
-            alert("Copied " + copyText.value);
+            alert(`Copied "${copyText.value}" to clipboard.`);
         })
-    })
 </script>

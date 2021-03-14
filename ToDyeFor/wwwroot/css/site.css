@@ -66,6 +66,7 @@ html {
     bottom: 0;
     width: 100%;
     white-space: nowrap;
+    position: absolute;
     line-height: 60px; /* Vertically center the text there */
 }
 
@@ -270,7 +271,6 @@ input {
     right: 0;
     top: 0;
     bottom: 0;
-    position: absolute;
     background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
     background-size: 1800% 1800%;
     animation: rainbow 180s ease infinite;

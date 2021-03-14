@@ -1,6 +1,7 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+
 a.navbar-brand {
     white-space: normal;
     text-align: center;
@@ -60,18 +61,31 @@ html {
     min-height: 100%;
 }
 
-body {
-    /* Margin bottom by footer height */
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 60px;
-}
-
 .footer {
     position: fixed;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
     line-height: 60px; /* Vertically center the text there */
+}
+
+/* fonts and such */
+body {
+    /* Margin bottom by footer height */
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 60px;
+}
+
+.logo {
+    font-family: 'Oleo Script', cursive;
+    /*font-size: x-large;*/
+    /*font-size-adjust: initial;*/
+    display: contents;
+}
+
+.oleoSwash {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    display: contents;
 }
 
 /* search view styles*/

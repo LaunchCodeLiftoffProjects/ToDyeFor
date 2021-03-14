@@ -64,6 +64,7 @@ body {
     /* Margin bottom by footer height */
     font-family: 'Poppins', sans-serif;
     margin-bottom: 60px;
+    background-color: blanchedalmond;
     //background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
 }
 

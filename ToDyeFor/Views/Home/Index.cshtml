@@ -9,15 +9,25 @@
 
 <form method="post" asp-controller="Home" asp-action="Index">
     <div class="text-center">
-        Welcome to ToDyeFor! Calculate your MX Reactive Dye recipe below or <a href="Home/About">click here</a> to learn more about us.
+       
         <div id="calculator" class="card" style="border-radius: 6px; ">
+
+             @*step 0*@
+            <div class="tab" style="padding: 20px;">
+                <h2>Welcome to ToDyeFor!</h2>
+                <br />
+                <h4>Click next to calculate your MX Reactive Dye recipe</h4>
+                     <p>or</p> 
+                <h5><a href="Home/About">click here</a> to learn more about us.</h5>
+
+            </div>
 
             @*step 1*@
             <div class="tab">
                 <p>
                     <label asp-for="FabricWeight">
                         Weight of Fabric (grams)
-                        <input asp-for="FabricWeight" id="quantity">
+                        <input class="form-control" asp-for="FabricWeight" id="quantity">
                     </label>
 
                 </p>
@@ -49,6 +59,7 @@
 
             <!-- Circles which indicate the steps of the form: -->
             <div style="text-align:center;margin-top:40px;">
+                <span class="step"  style="visibility: hidden"></span>
                 <span class="step"></span>
                 <span class="step"></span>
             </div>
@@ -56,42 +67,46 @@
         </div>
 
         <div>
-            <h2 id="recipeStatus">Submit form to calculate results</h2>
             <div id="calculateResults" class="cards">
-                <div  id="results" style="visibility: hidden" class="card">
+                <div  id="results" style="visibility: hidden; padding: 20px;" class="card">
                     <div id="dyeRecipe">
                         <table class="table">
-                            <tr>
-                                <th>Depth of Shade</th>
-                                <td id="shadeDepth"></td>
-                            </tr>
-                            <tr>
-                                <th>Weight of Fabric</th>
-                                <td id="fabricWeight"></td>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th>Salt Amount</th>
-                                <td id="saltCalc"></td>
-                            </tr>
-                            <tr>
-                                <th>Soda Ash Amount</th>
-                                <td id="sodaAshCalc"></td>
-                            </tr>
-                            <tr>
-                                <th>Water Amount</th>
-                                <td id="waterCalc"></td>
-                            </tr>
-                            <tr>
-                                <th>Dye Amount</th>
-                                <td id="dyeCalc"></td>
-                            </tr>
+                            <thead>
+                                <tr><h4>Your recipe has been calculated!</h4></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Depth of Shade</th>
+                                    <td id="shadeDepth"></td>
+                                </tr>
+                                <tr>
+                                    <th>Weight of Fabric</th>
+                                    <td id="fabricWeight"></td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Salt Amount</th>
+                                    <td id="saltCalc"></td>
+                                </tr>
+                                <tr>
+                                    <th>Soda Ash Amount</th>
+                                    <td id="sodaAshCalc"></td>
+                                </tr>
+                                <tr>
+                                    <th>Water Amount</th>
+                                    <td id="waterCalc"></td>
+                                </tr>
+                                <tr>
+                                    <th>Dye Amount</th>
+                                    <td id="dyeCalc"></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
-                    <button class="btn btn-outline-dark" onclick="printDiv('dyeRecipe')">Print Recipe</button>
+                    <p><button class="btn btn-outline-dark" onclick="printDiv('dyeRecipe')">Print Recipe</button>
                 </div>
 
 
@@ -99,18 +114,18 @@
                     <h4>Would you like to save this recipe?</h4>
 
                     <label asp-for="Name">
-                        Name <input asp-for="Name" id="recipeName">
+                        Name <input class="form-control" asp-for="Name" id="recipeName">
                     </label>
                     <label asp-for="Color">
-                        Color <select asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
+                        Color <select class="form-control" asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
                     </label>
                     <label asp-for="DyeColor">
-                        Dye Name <input asp-for="DyeColor" id="dye">
+                        Dye Name <input class="form-control" asp-for="DyeColor" id="dye">
                     </label>
                     <label asp-for="Fabric">
-                        Fabric/Fiber Type <select asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
+                        Fabric/Fiber Type <select class="form-control" asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
                     </label>
-                    <input type="submit" value="Save Recipe" class="btn btn-success" />
+                    <p><button type="submit" class="btn btn-success">Save Recipe</button></p>
                     <p style="color:red">WARNING:  You must be signed in to save your recipe. </p>
                 </div>
             </div>

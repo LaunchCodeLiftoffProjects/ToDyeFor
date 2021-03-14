@@ -64,8 +64,6 @@ body {
     /* Margin bottom by footer height */
     font-family: 'Poppins', sans-serif;
     margin-bottom: 60px;
-    background-color: blanchedalmond;
-    //background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
 }
 
 .footer {
@@ -209,7 +207,6 @@ input {
     padding: 10px;
     width: 100%;
     font-size: 17px;
-    //font-family: Raleway; /*we can change this for the input fields font*/
     border: 1px solid #aaaaaa;
 }
 
@@ -248,4 +245,33 @@ input {
 /* About page styles*/
 .aboutBody {
     line-height: 30px;
+}
+
+
+/*rainbow background*/
+.wrapper {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
+    animation: rainbow 180s ease infinite;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 82%
+    }
+
+    50% {
+        background-position: 100% 19%
+    }
+
+    100% {
+        background-position: 0% 82%
+    }
 }

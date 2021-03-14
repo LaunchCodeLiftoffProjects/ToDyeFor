@@ -27,7 +27,7 @@ function showTab(n) {
     if (n == (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "Submit";
         document.getElementById("nextBtn").value = "Submit";
-        document.getElementById("nextBtn").class = "btn btn-outline-success";
+        document.getElementById("nextBtn").className = "btn btn-success";
     } else {
         document.getElementById("nextBtn").innerHTML = "Next";
     }
@@ -87,21 +87,14 @@ function validateForm() {
 
 function fixStepIndicator(n) {
     // This function removes the "active" class of all steps...
-    var i, x = document.getElementsByClassName("step");
-    for (i = 0; i < x.length; i++) {
+    var  x = document.getElementsByClassName("step");
+    for (var i = 0; i < x.length; i++) {
         x[i].className = x[i].className.replace(" active", "");
     }
     //... and adds the "active" class to the current step:
     x[n].className += " active";
 }
 
-// displays current value of shade depth slider
-var slider2 = document.getElementById("shade");
-var output2 = document.getElementById("depth");
-output2.innerHTML = `${slider2.value}`;
-slider2.oninput = function () {
-    output2.innerHTML = `${this.value}`;
-}
 
 
 // what happens when they click the submit button
@@ -111,7 +104,6 @@ function submitForm() {
     //this repopulates the text below the card tabs with the inputs and calculated results and makes rest of form visible.
     save.style.visibility = 'visible'
     results.style.visibility = 'visible'
-    recipeStatus.innerHTML = `Your recipe has been calculated!`;
     fabricWeight.innerHTML = `${quantity.value} grams`;
     shadeDepth.innerHTML = `${shade.value}%`;
     dyeCalc.innerHTML = `${((shade.value)/100) * (quantity.value)} grams`;

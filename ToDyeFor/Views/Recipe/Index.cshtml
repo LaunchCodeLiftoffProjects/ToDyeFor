@@ -1,21 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@using ToDyeFor.Models
+﻿@using ToDyeFor.Models
 @model List<MXRecipe>
 
 <h1>Dye Recipes</h1>
 
 <p>
-    <a asp-controller="Recipe" asp-action="Calculator">Calculate Recipe</a>
-    <a asp-controller="Recipe" asp-action="Delete">Delete Recipes</a>
+    <a class="btn btn-outline-dark" asp-controller="Recipe" asp-action="Calculator">Calculate Recipe</a>
+    <a class="btn btn-danger" asp-controller="Recipe" asp-action="Delete">Batch Delete Recipes</a>
 </p>
 
 @if (Model.Count == 0)
 {
-    <p>No recipes yet!</p>
+    <p>No recipes yet! Get started <a asp-controller="Recipe" asp-action="Calculator">here</a>.</p>
 }
 else
 {

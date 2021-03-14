@@ -27,6 +27,7 @@ function showTab(n) {
     if (n == (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "Submit";
         document.getElementById("nextBtn").value = "Submit";
+        document.getElementById("nextBtn").class = "btn btn-outline-success";
     } else {
         document.getElementById("nextBtn").innerHTML = "Next";
     }

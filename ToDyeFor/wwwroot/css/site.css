@@ -64,7 +64,7 @@ body {
     /* Margin bottom by footer height */
     font-family: 'Poppins', sans-serif;
     margin-bottom: 60px;
-    background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
+    //background-image: linear-gradient(to right, #2BBF13, #0BAFC9);
 }
 
 .footer {
@@ -208,7 +208,7 @@ input {
     padding: 10px;
     width: 100%;
     font-size: 17px;
-    font-family: Raleway;
+    //font-family: Raleway; /*we can change this for the input fields font*/
     border: 1px solid #aaaaaa;
 }
 

@@ -46,19 +46,12 @@
     </table>
 
 </div>
-<button class="btn btn-secondary" onclick="printDiv('recipeDetail')">Print Recipe</button>
+<button class="btn btn-outline-dark" onclick="printDiv('recipeDetail')">Print Recipe</button>
 @if (Model.ApplicationUserId == User.FindFirstValue(ClaimTypes.NameIdentifier) && Model.ApplicationUserId != null)
 {
-    <table>
-        <tr>
-            <td>
-                <a asp-controller="Recipe" asp-action="Edit" asp-route-id="@Model.Id">Edit Recipe</a>
-            </td>
-            <td>
-                <input onclick="on()" class="btn btn-danger" type="button" id="deleteButton" name="recipeId" value="Delete this Recipe" />
-            </td>
-        </tr>
-    </table>
+ <a class="btn btn-outline-success" asp-controller="Recipe" asp-action="Edit" asp-route-id="@Model.Id">Edit Recipe</a>
+ <button onclick="on()" class="btn btn-danger" type="submit" id="deleteButton" name="recipeId">Delete this Recipe</button>
+
     <div class="confirmDelete" id="confirmDelete" style="visibility:hidden">
         <form method="post" class="form-group">
 
@@ -72,7 +65,7 @@
 
 
     <div class="detailOverlay" id="detailOverlay" onclick="off()"></div>
-
+}
     <script>
         let deleteButton = document.getElementById("deleteButton");
         let confirmation = document.getElementById("confirmDelete");
@@ -92,4 +85,3 @@
             confirmation.style.visibility = "hidden";
         }
     </script>
-}

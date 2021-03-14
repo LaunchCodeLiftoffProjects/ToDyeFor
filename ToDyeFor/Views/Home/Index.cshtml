@@ -42,8 +42,8 @@
 
             <div style="overflow:auto;">
                 <div style="float:right;">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-outline-dark">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-outline-dark">Next</button>
                 </div>
             </div>
 
@@ -91,7 +91,7 @@
                             </tr>
                         </table>
                     </div>
-                    <button class="btn btn-secondary" onclick="printDiv('dyeRecipe')">Print Recipe</button>
+                    <button class="btn btn-outline-dark" onclick="printDiv('dyeRecipe')">Print Recipe</button>
                 </div>
 
 
@@ -110,7 +110,7 @@
                     <label asp-for="Fabric">
                         Fabric/Fiber Type <select asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
                     </label>
-                    <input type="submit" value="Save Recipe" />
+                    <input type="submit" value="Save Recipe" class="btn btn-success" />
                     <p style="color:red">WARNING:  You must be signed in to save your recipe. </p>
                 </div>
             </div>

@@ -7,12 +7,12 @@
     <div class="form-group">
         <label asp-for="Name">
             Recipe Name
-            <input class="form-control"asp-for="Name">
+            <input class="formInput"asp-for="Name">
         </label>
         <br />
         <label asp-for="DyeColor">
             Dye Color
-            <input class="form-control"asp-for="DyeColor">
+            <input class="formInput"asp-for="DyeColor">
         </label>
         <br />
         <label asp-for="ShadeDepth">
@@ -22,17 +22,17 @@
         <br />
         <label asp-for="FabricWeight">
             Weight of Fabric (grams)
-            <input class="form-control"asp-for="FabricWeight">
+            <input class="formInput"asp-for="FabricWeight">
         </label>
         <br />
         <label asp-for="Fabric">
             Fabric/Fiber Type
-            <select class="form-control" asp-for="Fabric" asp-items="Model.FabricTypes"></select>
+            <select class="formInput" asp-for="Fabric" asp-items="Model.FabricTypes"></select>
         </label>
         <br />
         <label asp-for="Color">
             Color
-            <select class="form-control" asp-for="Color" asp-items="Model.ColorTypes"></select>
+            <select class="formInput" asp-for="Color" asp-items="Model.ColorTypes"></select>
         </label>
         <br />
     </div>

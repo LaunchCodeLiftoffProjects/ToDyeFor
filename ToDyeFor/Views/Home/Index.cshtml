@@ -24,10 +24,10 @@
 
             @*step 1*@
             <div class="tab">
-                <p>
+                <p style="margin: 40px;">
                     <label asp-for="FabricWeight">
                         Weight of Fabric (grams)
-                        <input class="form-control" asp-for="FabricWeight" id="quantity">
+                        <input class="formInput" asp-for="FabricWeight" id="quantity" placeholder="Weight in grams">
                     </label>
 
                 </p>
@@ -114,16 +114,16 @@
                     <h4>Would you like to save this recipe?</h4>
 
                     <label asp-for="Name">
-                        Name <input class="form-control" asp-for="Name" id="recipeName">
+                        Name <input class="formInput" asp-for="Name" id="recipeName">
                     </label>
                     <label asp-for="Color">
-                        Color <select class="form-control" asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
+                        Color <select class="formInput" asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
                     </label>
                     <label asp-for="DyeColor">
-                        Dye Name <input class="form-control" asp-for="DyeColor" id="dye">
+                        Dye Name <input class="formInput" asp-for="DyeColor" id="dye">
                     </label>
                     <label asp-for="Fabric">
-                        Fabric/Fiber Type <select class="form-control" asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
+                        Fabric/Fiber Type <select class="formInput" asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
                     </label>
                     <p><button type="submit" class="btn btn-success">Save Recipe</button></p>
                     <p style="color:red">WARNING:  You must be signed in to save your recipe. </p>

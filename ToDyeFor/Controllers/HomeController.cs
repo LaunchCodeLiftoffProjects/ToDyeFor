@@ -39,7 +39,7 @@ namespace ToDyeFor.Controllers
 
             MXRecipe newMXRecipe = new MXRecipe
             {
-                Name = calculateMXRecipeViewModel.Name,
+                Name = calculateMXRecipeViewModel.Name.ToUpper(),
                 DyeColor = calculateMXRecipeViewModel.DyeColor,
                 ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
                 FabricWeight = calculateMXRecipeViewModel.FabricWeight,

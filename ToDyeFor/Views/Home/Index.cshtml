@@ -61,14 +61,14 @@
             <div style="text-align:center;margin-top:40px;">
                 <span class="step"  ></span>
                 <span class="step"></span>
-                <span class="step" style="visibility: hidden"></span>
+                <span class="step" ></span>
             </div>
 
         </div>
 
-        <div>
+        <div id="results" style="display: none">
             <div id="calculateResults" class="cards">
-                <div  id="results" style="visibility: hidden; padding: 20px;" class="card">
+                <div  style="padding: 20px;" class="card">
                     <div id="dyeRecipe">
                         <table class="table">
                             <thead>
@@ -110,7 +110,7 @@
                 </div>
 
 
-                <div id="save" style="visibility: hidden; padding: 20px;" class="card">
+                <div style="padding: 20px;" class="card">
                     <h4>Would you like to save this recipe?</h4>
 
                     <label asp-for="Name">

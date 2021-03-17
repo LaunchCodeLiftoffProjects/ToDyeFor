@@ -15,13 +15,10 @@ namespace ToDyeFor.Controllers
     [Authorize]
     public class RecipeController : Controller
     {
-        static private List<MXRecipe> MXRecipes = new List<MXRecipe>();
         private ApplicationDbContext context;
         private List<MXRecipe> mxRecipes;
         private List<MXRecipe> userRecipes;
 
-
-        //private readonly UserManager<ApplicationUser> _userManager;
         public RecipeController(ApplicationDbContext dbContext)
         {
             context = dbContext;
@@ -52,7 +49,7 @@ namespace ToDyeFor.Controllers
         {
             MXRecipe newMXRecipe = new MXRecipe
             {
-                Name = calculateMXRecipeViewModel.Name,
+                Name = calculateMXRecipeViewModel.Name.ToUpper(),
                 DyeColor = calculateMXRecipeViewModel.DyeColor,
                 ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
                 FabricWeight = calculateMXRecipeViewModel.FabricWeight,
@@ -141,7 +138,7 @@ namespace ToDyeFor.Controllers
         public IActionResult SubmiteditVMForm(calculateMXRecipeViewModel editVM)
         {
             MXRecipe recipeById = context.MXRecipes.Find(editVM.Id);
-            recipeById.Name = editVM.Name;
+            recipeById.Name = editVM.Name.ToUpper();
             recipeById.DyeColor = editVM.DyeColor;
             recipeById.ShadeDepth = editVM.ShadeDepth;
             recipeById.FabricWeight = editVM.FabricWeight;

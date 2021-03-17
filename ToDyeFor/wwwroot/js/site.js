@@ -102,8 +102,7 @@ function submitForm() {
     //hides the tabs
     document.getElementById("calculator").style.display = "none";
     //this repopulates the text below the card tabs with the inputs and calculated results and makes rest of form visible.
-    save.style.visibility = 'visible'
-    results.style.visibility = 'visible'
+    results.style.display = 'block';
     fabricWeight.innerHTML = `${quantity.value} grams`;
     shadeDepth.innerHTML = `${shade.value}%`;
     dyeCalc.innerHTML = `${((shade.value)/100) * (quantity.value)} grams`;

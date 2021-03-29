@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ToDyeFor.Models
 {
@@ -14,12 +15,9 @@ namespace ToDyeFor.Models
         public DateTime UpdatedDate { get; set; }
 
         //user input
-
         public string Name { get; set; }//user can create a personalized recipe name
 
-
         public double ShadeDepth { get; set; }
-
 
         public double FabricWeight { get; set; }
 

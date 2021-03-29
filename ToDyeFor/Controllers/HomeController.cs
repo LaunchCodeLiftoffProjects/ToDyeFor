@@ -36,24 +36,28 @@ namespace ToDyeFor.Controllers
         //[Route("Home/Results")]
         public IActionResult Index(calculateMXRecipeViewModel calculateMXRecipeViewModel)
         {
-
-            MXRecipe newMXRecipe = new MXRecipe
+            if (ModelState.IsValid)
             {
-                Name = calculateMXRecipeViewModel.Name.ToUpper(),
-                DyeColor = calculateMXRecipeViewModel.DyeColor,
-                ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
-                FabricWeight = calculateMXRecipeViewModel.FabricWeight,
-                Color = calculateMXRecipeViewModel.Color, 
-                Fabric = calculateMXRecipeViewModel.Fabric,
-                Salt = calculateMXRecipeViewModel.Salt(),
-                SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
-                Water = calculateMXRecipeViewModel.Water(),
-                Dye = calculateMXRecipeViewModel.Dye(),
-                ApplicationUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier)
-            };
-            context.MXRecipes.Add(newMXRecipe);
-            context.SaveChanges();
-            return Redirect("/Recipe");
+                MXRecipe newMXRecipe = new MXRecipe
+                {
+                    Name = calculateMXRecipeViewModel.Name,
+                    DyeColor = calculateMXRecipeViewModel.DyeColor,
+                    ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
+                    FabricWeight = calculateMXRecipeViewModel.FabricWeight,
+                    Color = calculateMXRecipeViewModel.Color,
+                    Fabric = calculateMXRecipeViewModel.Fabric,
+                    Salt = calculateMXRecipeViewModel.Salt(),
+                    SodaAsh = calculateMXRecipeViewModel.SodaAsh(),
+                    Water = calculateMXRecipeViewModel.Water(),
+                    Dye = calculateMXRecipeViewModel.Dye(),
+                    ApplicationUserId = this.User.FindFirstValue(ClaimTypes.NameIdentifier)
+                };
+                context.MXRecipes.Add(newMXRecipe);
+                context.SaveChanges();
+                return Redirect("/Recipe");
+            }
+
+            return View(calculateMXRecipeViewModel);
         }
 
         public IActionResult About()

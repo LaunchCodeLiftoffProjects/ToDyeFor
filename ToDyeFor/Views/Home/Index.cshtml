@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@using System.Security.Claims;
 @using ToDyeFor.ViewModel;
 @model calculateMXRecipeViewModel;
 
@@ -9,15 +9,15 @@
 
 <form method="post" asp-controller="Home" asp-action="Index">
     <div class="text-center">
-       
+
         <div id="calculator" class="card" style="border-radius: 6px; ">
 
-             @*step 0*@
+            @*step 0*@
             <div class="tab" style="padding: 20px;">
                 <h2>Welcome to <strong class="logo">To<div class="oleoSwash">Dye</div>For</strong>!</h2>
                 <br />
                 <h4>Click next to calculate your MX Reactive Dye recipe</h4>
-                     <p>or</p> 
+                <p>or</p>
                 <h5><a href="Home/About">click here</a> to learn more about us.</h5>
 
             </div>
@@ -29,8 +29,8 @@
                         Weight of Fabric (grams)
                         <input class="formInput" asp-for="FabricWeight" id="quantity" placeholder="Weight in grams">
                     </label>
-
                 </p>
+                <span asp-validation-for="FabricWeight"></span>
             </div>
 
 
@@ -44,9 +44,10 @@
                     <div class="slidecontainer">
                         <input asp-for="ShadeDepth" type="range" min="0" max="8" step="0.1" value="5" class="slider" id="shade">
                         <br>Value: <span id="depth"></span> %
-
                     </div>
+
                 </p>
+                <span asp-validation-for="ShadeDepth"></span>
             </div>
 
 
@@ -59,16 +60,16 @@
 
             <!-- Circles which indicate the steps of the form: -->
             <div style="text-align:center;margin-top:40px;">
-                <span class="step"  ></span>
                 <span class="step"></span>
-                <span class="step" ></span>
+                <span class="step"></span>
+                <span class="step"></span>
             </div>
 
         </div>
 
         <div id="results" style="display: none">
             <div id="calculateResults" class="cards">
-                <div  style="padding: 20px;" class="card">
+                <div style="padding: 20px;" class="card">
                     <div id="dyeRecipe">
                         <table class="table">
                             <thead>
@@ -115,18 +116,25 @@
 
                     <label asp-for="Name">
                         Name <input class="formInput" asp-for="Name" id="recipeName">
+                        <span asp-validation-for="Name"></span>
                     </label>
+
                     <label asp-for="Color">
                         Color <select class="formInput" asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
                     </label>
                     <label asp-for="DyeColor">
                         Dye Name <input class="formInput" asp-for="DyeColor" id="dye">
+                        <span asp-validation-for="DyeColor"></span>
                     </label>
+
                     <label asp-for="Fabric">
                         Fabric/Fiber Type <select class="formInput" asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
                     </label>
                     <p><button type="submit" class="btn btn-success">Save Recipe</button></p>
-                    <p style="color:red">WARNING:  You must be signed in to save your recipe. </p>
+                    @if (User.FindFirstValue(ClaimTypes.NameIdentifier) == null)
+                    {
+                        <p class="field-validation-error">WARNING:  You must be signed in to save this recipe. </p>
+                    }
                 </div>
             </div>
         </div>

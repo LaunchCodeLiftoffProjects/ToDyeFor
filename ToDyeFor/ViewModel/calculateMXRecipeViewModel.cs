@@ -9,7 +9,7 @@ using ToDyeFor.Models;
 
 namespace ToDyeFor.ViewModel
 {
-    public class calculateMXRecipeViewModel
+    public class CalculateMXRecipeViewModel
     {
 
         public int Id { get; set; }
@@ -60,7 +60,7 @@ namespace ToDyeFor.ViewModel
             new SelectListItem(FabricType.Silk.ToString(), ((int)FabricType.Silk).ToString()),
             new SelectListItem(FabricType.Wool.ToString(), ((int)FabricType.Wool).ToString())
         };
-        public calculateMXRecipeViewModel(string name, double shadeDepth, double? fabricWeight, string dyeColor)
+        public CalculateMXRecipeViewModel(string name, double shadeDepth, double fabricWeight, string dyeColor)
         {
             Name = name;
             ShadeDepth = shadeDepth;
@@ -69,7 +69,7 @@ namespace ToDyeFor.ViewModel
 
         }
 
-        public calculateMXRecipeViewModel() { }
+        public CalculateMXRecipeViewModel() { }
 
         public double Salt()
         {

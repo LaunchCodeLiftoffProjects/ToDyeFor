@@ -1,4 +1,4 @@
-﻿@model ToDyeFor.ViewModel.calculateMXRecipeViewModel
+﻿@model ToDyeFor.ViewModel.CalculateMXRecipeViewModel
 
 
 <h1>Edit "@Model.Name"</h1>
@@ -8,21 +8,25 @@
         <label asp-for="Name">
             Recipe Name
             <input class="formInput" asp-for="Name">
+            <span asp-validation-for="Name"></span>
         </label>
         <br />
         <label asp-for="DyeColor">
             Dye Color
             <input class="formInput" asp-for="DyeColor">
+            <span asp-validation-for="DyeColor"></span>
         </label>
         <br />
         <label asp-for="ShadeDepth">
             Depth of Shade: <span id="depth"></span>%
-            <input  asp-for="ShadeDepth" type="range" min="0" max="8" step="0.1" value="@Model.ShadeDepth" class="slider" id="shade">
+            <input asp-for="ShadeDepth" type="range" min="0" max="8" step="0.1" value="@Model.ShadeDepth" class="slider" id="shade">
         </label>
+        <span asp-validation-for="ShadeDepth"></span>
         <br />
         <label asp-for="FabricWeight">
             Weight of Fabric (grams)
             <input class="formInput" asp-for="FabricWeight">
+            <span asp-validation-for="FabricWeight"></span>
         </label>
         <br />
         <label asp-for="Fabric">

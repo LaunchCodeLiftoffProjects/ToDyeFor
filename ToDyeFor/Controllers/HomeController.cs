@@ -27,20 +27,20 @@ namespace ToDyeFor.Controllers
         //js calculator
         public IActionResult Index()
         {
-            calculateMXRecipeViewModel calculateMXRecipeViewModel = new calculateMXRecipeViewModel();
+            CalculateMXRecipeViewModel calculateMXRecipeViewModel = new CalculateMXRecipeViewModel();
             return View(calculateMXRecipeViewModel);
         }
 
         [HttpPost]
         [Authorize]
         //[Route("Home/Results")]
-        public IActionResult Index(calculateMXRecipeViewModel calculateMXRecipeViewModel)
+        public IActionResult Index(CalculateMXRecipeViewModel calculateMXRecipeViewModel)
         {
             if (ModelState.IsValid)
             {
                 MXRecipe newMXRecipe = new MXRecipe
                 {
-                    Name = calculateMXRecipeViewModel.Name,
+                    Name = calculateMXRecipeViewModel.Name.ToUpper(),
                     DyeColor = calculateMXRecipeViewModel.DyeColor,
                     ShadeDepth = calculateMXRecipeViewModel.ShadeDepth,
                     FabricWeight = calculateMXRecipeViewModel.FabricWeight,

@@ -27,7 +27,7 @@
                 <p style="margin: 40px;">
                     <label asp-for="FabricWeight">
                         Weight of Fabric (grams)
-                        <input class="formInput" asp-for="FabricWeight" id="quantity" placeholder="Weight in grams">
+                        <input class="form-control" asp-for="FabricWeight" id="quantity" placeholder="Weight in grams">
                     </label>
                 </p>
                 <span asp-validation-for="FabricWeight"></span>
@@ -115,20 +115,20 @@
                     <h4>Would you like to save this recipe?</h4>
 
                     <label asp-for="Name">
-                        Name <input class="formInput" asp-for="Name" id="recipeName">
+                        Name <input class="form-control" asp-for="Name" id="recipeName">
                         <span asp-validation-for="Name"></span>
                     </label>
 
                     <label asp-for="Color">
-                        Color <select class="formInput" asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
+                        Color <select class="form-control" asp-for="Color" asp-items="Model.ColorTypes" id="color"></select>
                     </label>
                     <label asp-for="DyeColor">
-                        Dye Name <input class="formInput" asp-for="DyeColor" id="dye">
+                        Dye Name <input class="form-control" asp-for="DyeColor" id="dye">
                         <span asp-validation-for="DyeColor"></span>
                     </label>
 
                     <label asp-for="Fabric">
-                        Fabric/Fiber Type <select class="formInput" asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
+                        Fabric/Fiber Type <select class="form-control" asp-for="Fabric" asp-items="Model.FabricTypes" id="fabric"></select>
                     </label>
                     <p><button type="submit" class="btn btn-success">Save Recipe</button></p>
                     @if (User.FindFirstValue(ClaimTypes.NameIdentifier) == null)

@@ -1,36 +1,46 @@
 ﻿@using ToDyeFor.Models
 @model List<MXRecipe>
 
-<h1>Dye Recipes</h1>
-
-<p>
-    <a class="btn btn-outline-dark" asp-controller="Recipe" asp-action="Calculator">Calculate Recipe</a>
-    <a class="btn btn-danger" asp-controller="Recipe" asp-action="Delete">Batch Delete Recipes</a>
-</p>
-
-@if (Model.Count == 0)
-{
-    <p>No recipes yet! Get started <a asp-controller="Recipe" asp-action="Calculator">here</a>.</p>
-}
-else
-{
-<div class="centered">
-
-    <section class="cards">
-        @foreach (MXRecipe r in Model)
-        {
-            <div class="card" id="listCard" style="background-image: linear-gradient(to right bottom, white, white, @r.Color) ">
-                <a class="nav-link text-dark" asp-controller="Search" asp-action="Detail" asp-route-id="@r.Id">
-                    @*<img class="card-img-top" src="https://1502fabrics.com/wp-content/uploads/2016/08/Revolution-Texture-Midnight.jpg" />*@
-                    <h5 class="card-title text-center">@r.Name</h5>
-                    <div class="card-body">
-                        <p>Dye Name: @r.DyeColor</p>
-                        <p>Fabric: @r.Fabric</p>
-                        <p>WoF: @r.FabricWeight g</p>
-                    </div>
-                </a>
+<div class="card container">
+        <div class="row align-items-center">
+            <div class="col">
+                <h1>Your Recipes</h1>
             </div>
-        }
-    </section>
+            <div class="col-md-auto">
+                <a class="btn btn-sm btn-outline-dark" asp-controller="Recipe" asp-action="Calculator">Calculate Recipe</a>
+            </div>
+            <div class="col-md-auto">
+                <a class="btn btn-sm btn-danger" asp-controller="Recipe" asp-action="Delete">Batch Delete Recipes</a>
+            </div>
+        </div>
 </div>
-}
+
+
+    @if (Model.Count == 0)
+    {
+        <div class="card" id="listCard" >
+                <p>No recipes yet! Get started <a asp-controller="Recipe" asp-action="Calculator">here</a>.</p>
+        </div>
+    }
+    else
+    {
+    <div class="centered">
+
+        <section class="cards">
+            @foreach (MXRecipe r in Model)
+            {
+                <div class="card" id="listCard" style="background-image: linear-gradient(to right bottom, white, white, @r.Color) ">
+                    <a class="nav-link text-dark" asp-controller="Search" asp-action="Detail" asp-route-id="@r.Id">
+                        @*<img class="card-img-top" src="https://1502fabrics.com/wp-content/uploads/2016/08/Revolution-Texture-Midnight.jpg" />*@
+                        <h5 class="card-title text-center">@r.Name</h5>
+                        <div class="card-body">
+                            <p>Dye Name: @r.DyeColor</p>
+                            <p>Fabric: @r.Fabric</p>
+                            <p>WoF: @r.FabricWeight g</p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </section>
+    </div>
+    }

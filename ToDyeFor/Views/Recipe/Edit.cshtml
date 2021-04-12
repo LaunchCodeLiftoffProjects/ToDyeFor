@@ -1,47 +1,47 @@
 ﻿@model ToDyeFor.ViewModel.CalculateMXRecipeViewModel
 
+<div class="card">
+    <h1>Edit "@Model.Name"</h1>
 
-<h1>Edit "@Model.Name"</h1>
-
-<form method="post" action="/Recipe/Edit">
-    <div class="form-group">
-        <label asp-for="Name">
-            Recipe Name
-            <input class="form-control" asp-for="Name">
-            <span asp-validation-for="Name"></span>
-        </label>
-        <br />
-        <label asp-for="DyeColor">
-            Dye Color
-            <input class="form-control" asp-for="DyeColor">
-            <span asp-validation-for="DyeColor"></span>
-        </label>
-        <br />
-        <label asp-for="ShadeDepth">
-            Depth of Shade: <span id="depth"></span>%
-            <input asp-for="ShadeDepth" type="range" min="0" max="8" step="0.1" value="@Model.ShadeDepth" class="slider" id="shade">
-        </label>
-        <span asp-validation-for="ShadeDepth"></span>
-        <br />
-        <label asp-for="FabricWeight">
-            Weight of Fabric (grams)
-            <input class="form-control" asp-for="FabricWeight">
-            <span asp-validation-for="FabricWeight"></span>
-        </label>
-        <br />
-        <label asp-for="Fabric">
-            Fabric/Fiber Type
-            <select class="form-control" asp-for="Fabric" asp-items="Model.FabricTypes"></select>
-        </label>
-        <br />
-        <label asp-for="Color">
-            Color
-            <select class="form-control" asp-for="Color" asp-items="Model.ColorTypes"></select>
-        </label>
-        <br />
+    <form method="post" action="/Recipe/Edit">
+        <div class="form-group">
+            <label asp-for="Name">
+                Recipe Name
+                <input class="form-control" asp-for="Name">
+                <span asp-validation-for="Name"></span>
+            </label>
+            <br />
+            <label asp-for="DyeColor">
+                Dye Color
+                <input class="form-control" asp-for="DyeColor">
+                <span asp-validation-for="DyeColor"></span>
+            </label>
+            <br />
+            <label asp-for="ShadeDepth">
+                Depth of Shade: <span id="depth"></span>%
+                <input asp-for="ShadeDepth" type="range" min="0" max="8" step="0.1" value="@Model.ShadeDepth" class="slider" id="shade">
+            </label>
+            <span asp-validation-for="ShadeDepth"></span>
+            <br />
+            <label asp-for="FabricWeight">
+                Weight of Fabric (grams)
+                <input class="form-control" asp-for="FabricWeight">
+                <span asp-validation-for="FabricWeight"></span>
+            </label>
+            <br />
+            <label asp-for="Fabric">
+                Fabric/Fiber Type
+                <select class="form-control" asp-for="Fabric" asp-items="Model.FabricTypes"></select>
+            </label>
+            <br />
+            <label asp-for="Color">
+                Color
+                <select class="form-control" asp-for="Color" asp-items="Model.ColorTypes"></select>
+            </label>
+            <br />
+        </div>
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-success">Update Recipe</button>
+    </form>
     </div>
-    <input type="hidden" asp-for="Id" />
-    <button type="submit" class="btn btn-success">Update Recipe</button> 
-</form>
-
 

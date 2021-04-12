@@ -6,70 +6,70 @@
 @using ToDyeFor.Models
 @model List<MXRecipe>
 
-
-<h1>Delete Recipes</h1>
-
-<form method="post">
+<div class="card">
+    <h1>Delete Recipes</h1>
+ 
+    <form method="post">
         <div class="form-group">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>
-                                Delete
-                            </th>
-                            <th>
-                                Recipe Name
-                            </th>
-                            <th>
-                                Dye Color
-                            </th>
-                            <th>
-                                Color
-                            </th>
-                            <th>
-                                Depth of Shade
-                            </th>
-                            <th>
-                                Fabric Weight
-                            </th>
-                            <th>
-                                Fabric/Fiber Type
-                            </th>
-                            <th>
-                                Salt
-                            </th>
-                            <th>
-                                Soda Ash
-                            </th>
-                            <th>
-                                Water
-                            </th>
-                            <th>
-                                Dye
-                            </th>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Delete
+                        </th>
+                        <th scope="col">
+                            Recipe Name
+                        </th>
+                        <th scope="col">
+                            Dye Color
+                        </th>
+                        <th scope="col">
+                            Color
+                        </th>
+                        <th scope="col">
+                            Depth of Shade
+                        </th>
+                        <th scope="col">
+                            Fabric Weight
+                        </th>
+                        <th scope="col">
+                            Fabric/Fiber Type
+                        </th>
+                        <th scope="col">
+                            Salt
+                        </th>
+                        <th scope="col">
+                            Soda Ash
+                        </th>
+                        <th scope="col">
+                            Water
+                        </th>
+                        <th scope="col">
+                            Dye
+                        </th>
+                    </tr>
+                </thead>
+                @foreach (var recipe in Model)
+                {
+                    <tr>
+                        <td scope="row"><input type="checkbox" name="recipeIds" value="@recipe.Id" class="form-control"></td>
+                        <td>@recipe.Name</td>
+                        <td>@recipe.DyeColor</td>
+                        <td>@recipe.Color</td>
+                        <td>@recipe.ShadeDepth %</td>
+                        <td>@recipe.FabricWeight grams</td>
+                        <td>@recipe.Fabric</td>
+                        <td>@recipe.Salt grams</td>
+                        <td>@recipe.SodaAsh grams</td>
+                        <td>@recipe.Water mL</td>
+                        <td>@recipe.Dye grams</td>
 
-                        </tr>
-                    </thead>
-                    @foreach (var recipe in Model)
-                    {
-                <tr>
-                    <td><input type="checkbox" name="recipeIds" value="@recipe.Id" class="form-control"></td>
-                    <td>@recipe.Name</td>
-                    <td>@recipe.DyeColor</td>
-                    <td>@recipe.Color</td>
-                    <td>@recipe.ShadeDepth %</td>
-                    <td>@recipe.FabricWeight grams</td>
-                    <td>@recipe.Fabric</td>
-                    <td>@recipe.Salt grams</td>
-                    <td>@recipe.SodaAsh grams</td>
-                    <td>@recipe.Water mL</td>
-                    <td>@recipe.Dye grams</td>
-
-                </tr>
-                    }
-                </table>
+                    </tr>
+                }
+            </table>
         </div>
 
         <button type="submit" class="btn btn-danger">Delete Selected Recipes</button>
 
-</form>
+    </form>
+    </div>
